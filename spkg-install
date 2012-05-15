@@ -1,0 +1,28 @@
+#! /bin/sh
+
+if [ "$SPKG_LOCAL" = "" ]; then
+   echo "SPKG_LOCAL undefined ... exiting";
+   echo "Maybe run 'qsnake --shell'?"
+   exit 1
+fi
+
+
+set -e
+
+# We stripped the doc/ directory, so we need to make sure the build system
+# still works:
+mkdir -p doc
+touch doc/Makefile.in
+mkdir -p tests
+touch tests/config.sh.in
+touch tests/tests.env.in
+touch tests/tests-install.env.in
+mkdir -p tests/Nightly
+touch tests/Nightly/Makefile.in
+
+unset RM
+
+# Install ABINIT
+./configure --prefix="$SPKG_LOCAL" --with-dft-flavor="none" --with-trio-flavor="none"
+make
+make install
