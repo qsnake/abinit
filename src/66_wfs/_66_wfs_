@@ -1,0 +1,38 @@
+!!****d* ABINIT/14wfs
+!! NAME
+!! 14wfs
+!!
+!! DESCRIPTION
+!! This directory contains level-4 routines used
+!! to treat wavefunctions. The main entry points to
+!! this library are the routines :
+!! - getghc.F90 : apply the Hamiltonian to one wavefunction,
+!!  use the routines in 53_ffts and 65_nonlocal
+!! - projbd.F90 and orthon.F90 : project and orthonormalize
+!!  the wavefunctions
+!! - wfconv.F90 : convert one wavefunction with some 
+!!  parameters to another wavefunction with some other
+!!  parameters (like PW sphere, spin or spinor characteristics
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! bestwfs.F90
+!! envlop.F90
+!! fxphas.F90
+!! getghc.F90
+!! listkk.F90
+!! orthon.F90
+!! precon.F90
+!! prep_fourwf.F90
+!! prep_getghc.F90
+!! projbd.F90
+!! sdirot.F90
+!! wfconv.F90
+!!
+!!***

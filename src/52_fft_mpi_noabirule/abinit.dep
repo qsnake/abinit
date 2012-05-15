@@ -1,0 +1,31 @@
+#Dependencies (inside the directory) of the directory ./src/52_fft_mpi_noabirule
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_52_fft_mpi_noabirule.$(MODEXT) \
+	m_fftw3.$(MODEXT) \
+	m_sgfft.$(MODEXT) 
+
+accrho.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+applypot.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+back.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+back_wf.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+forw.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+forw_wf.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+init.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 
+
+m_sgfft.$(OBJEXT): interfaces_52_fft_mpi_noabirule.$(OBJEXT) 

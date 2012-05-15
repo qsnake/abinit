@@ -1,0 +1,116 @@
+# -*- Python -*-
+#
+# Copyright (C) 2005-2012 ABINIT Group (Yann Pouillon)
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 6response library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "accrho3.F90",
+ "asria_calc.F90",
+ "asria_corr.F90",
+ "asrprs.F90",
+ "bec3.F90",
+ "cart29.F90",
+ "cart39.F90",
+ "cgwf3.F90",
+ "chkph3.F90",
+ "chneu9.F90",
+ "corrmetalwf1.F90",
+ "die3.F90",
+ "dyfnl3.F90",
+ "dyfro3.F90",
+ "dyout3.F90",
+ "dyxc13.F90",
+ "d2kindstr2.F90",
+ "d2sym3.F90",
+ "d3output.F90",
+ "d3sym.F90",
+ "ebp3.F90",
+ "edie3.F90",
+ "eigen_meandege.F90",
+ "elph2_fanddw.F90",
+ "eltfrhar3.F90",
+ "eltfrkin3.F90",
+ "eltfrloc3.F90",
+ "eltfrnl3.F90",
+ "eltfrxc3.F90",
+ "eltxccore.F90",
+ "etot3.F90",
+ "ewald3.F90",
+ "ewald4.F90",
+ "eig1fixed.F90",
+ "eig2tot.F90",
+ "gath3.F90",
+ "gaugetransfo.F90",
+ "gbefd3.F90",
+ "getgh1c.F90",
+ "getshell.F90",
+ "gradberry3.F90",
+ "hartrestr.F90",
+ "initberry3.F90",
+ "inpgkk.F90",
+ "inprep8.F90",
+ "insy3.F90",
+ "ioddb8_in.F90",
+ "ioddb8_out.F90",
+ "irred_perts.F90",
+ "kpg3.F90",
+ "kpgstr.F90",
+ "m_ddb_blk.F90",
+ "mkrho3.F90",
+ "mkvxcstr3.F90",
+ "mkvxcstrgga3.F90",
+ "mkcor3.F90",
+ "newfermie1.F90",
+ "newvtr3.F90",
+ "nlopt.F90",
+ "nselt3.F90",
+ "nstdy3.F90",
+ "nstpaw3.F90",
+ "nstwf3.F90",
+ "nstwf4.F90",
+ "outbsd.F90",
+ "outgkk.F90",
+ "phfrq3.F90",
+ "prtph3.F90",
+ "prtene3.F90",
+ "psddb8.F90",
+ "q0dy3_apply.F90",
+ "q0dy3_calc.F90",
+ "qmatrix.F90",
+ "read_blok8.F90",
+ "redgr.F90",
+ "resp3dte.F90",
+ "rhofermi3.F90",
+ "rhotov3.F90",
+ "scfcv3.F90",
+ "smeared_delta.F90",
+ "sydy3.F90",
+ "sygra3.F90",
+ "symdyma.F90",
+ "symph3.F90",
+ "syper3.F90",
+ "sytens.F90",
+ "vloca3.F90",
+ "vlocalstr.F90",
+ "vtorho3.F90",
+ "vtowfk3.F90",
+ "wfkfermi3.F90",
+ "wings3.F90",
+ "write_blok8.F90",
+ "wrtloctens.F90"]
+# IMPORTANT : please use the alphabetic order in the previous list. Do NOT add the new routine names at the end of the list.
+# This is important to avoid numerous conflicts at merge time. Thank you very much. Xavier.

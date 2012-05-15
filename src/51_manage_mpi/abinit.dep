@@ -1,0 +1,47 @@
+#Dependencies (inside the directory) of the directory ./src/51_manage_mpi
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_scalapack.$(MODEXT) \
+	interfaces_51_manage_mpi.$(MODEXT) \
+	m_eigen.$(MODEXT) \
+	m_wffile.$(MODEXT) \
+	m_xredistribute.$(MODEXT) 
+
+clnmpi_fft.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+clnmpi_respfn.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+cprj_utils_mpi.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+initmpi_fft.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+initmpi_gs.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+initmpi_img.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+interfaces_51_manage_mpi.$(OBJEXT): m_wffile.$(OBJEXT) 
+
+m_eigen.$(OBJEXT): defs_scalapack.$(OBJEXT) 
+
+mpi_enreg_tools.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+pre_gather.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+pre_scatter.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+pspheads_comm.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) 
+
+xdefineoff.$(OBJEXT): interfaces_51_manage_mpi.$(OBJEXT) m_wffile.$(OBJEXT) 
+
+xderiveread.$(OBJEXT): m_wffile.$(OBJEXT) 
+
+xderivewrite.$(OBJEXT): m_wffile.$(OBJEXT) 

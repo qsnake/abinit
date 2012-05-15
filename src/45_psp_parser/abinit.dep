@@ -1,0 +1,26 @@
+#Dependencies (inside the directory) of the directory ./src/45_psp_parser
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_45_psp_parser.$(MODEXT) \
+	m_xml_converters.$(MODEXT) \
+	m_xml_pseudo.$(MODEXT) \
+	m_xml_pseudo_types.$(MODEXT) 
+
+inpspheads.$(OBJEXT): interfaces_45_psp_parser.$(OBJEXT) m_xml_pseudo.$(OBJEXT) m_xml_pseudo_types.$(OBJEXT) 
+
+interfaces_45_psp_parser.$(OBJEXT): m_xml_pseudo_types.$(OBJEXT) 
+
+m_xml_pseudo.$(OBJEXT): m_xml_converters.$(OBJEXT) m_xml_pseudo_types.$(OBJEXT) 
+
+psxml2ab.$(OBJEXT): m_xml_pseudo_types.$(OBJEXT) 
+
+upfheader2abi.$(OBJEXT): interfaces_45_psp_parser.$(OBJEXT) 

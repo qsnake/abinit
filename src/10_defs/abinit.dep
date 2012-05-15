@@ -1,0 +1,37 @@
+#Dependencies (inside the directory) of the directory ./src/10_defs
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_aimfields.$(MODEXT) \
+	defs_aimprom.$(MODEXT) \
+	defs_basis.$(MODEXT) \
+	defs_datatypes.$(MODEXT) \
+	defs_fftdata.$(MODEXT) \
+	defs_parameters.$(MODEXT) \
+	defs_suscep.$(MODEXT) \
+	defs_time.$(MODEXT) \
+	defs_wannier90.$(MODEXT) 
+
+defs_aimfields.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_aimprom.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_datatypes.$(OBJEXT): defs_basis.$(OBJEXT) defs_parameters.$(OBJEXT) 
+
+defs_fftdata.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_parameters.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_suscep.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_time.$(OBJEXT): defs_basis.$(OBJEXT) 
+
+defs_wannier90.$(OBJEXT): defs_datatypes.$(OBJEXT) 

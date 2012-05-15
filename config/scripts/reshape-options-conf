@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+#
+# Copyright (C) 2010-2011 ABINIT Group (Yann Pouillon)
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+from ConfigParser import ConfigParser
+from time import gmtime,strftime
+
+import commands
+import os
+import re
+import sys
+
+class MyConfigParser(ConfigParser):
+
+  def optionxform(self,option):
+    return str(option)
+
+# ---------------------------------------------------------------------------- #
+
+#
+# Main program
+#
+
+# Initial setup
+my_name   = "reshape-options-conf"
+my_config = "config/specs/options.conf"
+
+# Check if we are in the top of the ABINIT source tree
+if ( not os.path.exists("configure.ac") or
+     not os.path.exists("src/98_main/abinit.F90") ):
+  print "%s: You must be in the top of an ABINIT source tree." % my_name
+  print "%s: Aborting now." % my_name
+  sys.exit(1)
+
+# Check config file(s)
+if ( not os.path.exists(my_config) ):
+  print "%s: Could not find config file (%s)." % (my_name,cnf_file)
+  print "%s: Aborting now." % my_name
+  sys.exit(2)
+
+# What time is it?
+now = strftime("%Y/%m/%d %H:%M:%S +0000",gmtime())
+
+# Init
+re_sta = re.compile("^status.*(changed|new|removed|renamed)")
+re_sec = re.compile("^\\[.*\\]$")
+cnf = MyConfigParser()
+cnf.read(my_config)
+opt_out = """\
+#
+# Config file for the configure options of Abinit
+#
+# Each section of this file corresponds to a single configure option. If
+# no specific attributes are provided, the default ones are applied.
+#
+# The recognized attributes are the following:
+#
+#   * description : mandatory attribute, with no default value,
+#                   containing a short description of what the option does;
+#
+#   * values      : optional attribute, defining the permitted values of
+#                   the option, as follows:
+#
+#                     * @includes : include flags ('-I...');
+#                     * @integer  : integer values;
+#                     * @libs     : library flags ('-L... -l...);
+#                     * any space-separated enumeration of strings;
+#
+#                   for 'enable_*' options, 'values' defaults to 'no yes';
+#
+#   * default     : optional attribute, setting the default value of
+#                   the option, which must be compatible with 'values';
+#                   if omitted, the option will be left unset;
+#
+#   * status      : mandatory attribute, set in the '[DEFAULT]' section,
+#                   which can be one of the following:
+#
+#                     * changed <what_changed> (e.g. 'changed meaning'),
+#                       when the name of the option did not change;
+#                     * dropped, for long-removed options;
+#                     * new, for new options;
+#                     * obsolete, for soon-to-be-removed options;
+#                     * renamed <old_name>, for renamed options;
+#                     * removed, for removed options;
+#                     * stable, for unchanged options (expected default).
+#
+# Though the 'description' attribute must always be provided, 'status'
+# may be omitted if it equals its default value (see '[DEFAULT]'
+# section).
+
+[DEFAULT]
+status = stable
+
+"""
+
+# Process config file
+opt_secs = cnf.sections()
+opt_secs.sort()
+for opt in opt_secs:
+  opt_out += "[%s]\n" % (opt)
+  for var in ["description","values","default","status"]:
+    if ( cnf.has_option(opt,var) ):
+      val = cnf.get(opt,var)
+      if ( not (var == "status" and val == "stable") ):
+        opt_out += "%s = %s\n" % (var,val)
+  opt_out += "\n"
+
+# Rewrite config file
+file(my_config,"w").write(opt_out)

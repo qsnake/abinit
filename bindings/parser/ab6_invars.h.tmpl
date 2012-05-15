@@ -1,0 +1,190 @@
+#ifndef AB6_INVARS_H
+#define AB6_INVARS_H
+
+#include <stdlib.h>
+
+#include "ab6_base.h"
+
+/**
+ * Ab6InvarsTypes:
+ * @_INT_SCALAR: a 32 bits integer.
+ * @_DOUBLE_SCALAR: a 64 bits float.
+ * @_INT_ARRAY: an array of 32 bits integers.
+ * @_DOUBLE_ARRAY: an array of 64 bits floats.
+ *
+ * The possible types of the attributes of datasets.
+ */
+typedef enum
+  {
+    _INT_SCALAR,
+    _INT_ARRAY,
+    _DOUBLE_SCALAR,
+    _DOUBLE_ARRAY,
+    _OTHER
+  } Ab6InvarsTypes;
+
+@ATTRIBUTES@
+
+Ab6InvarsTypes ab6_invars_get_type_from_id(Ab6InvarsIds id);
+/**
+ * AB6_INVARS_TYPE:
+ * @A: an #Ab6InvarsIds id.
+ *
+ * Get the type of a given attribute of Dtset structure.
+ *
+ * Returns: a #Ab6InvarsTypes id.
+ */
+#define AB6_INVARS_TYPE(A) ab6_invars_get_type_from_id(A)
+/**
+ * AB6_INVARS_STR:
+ * @A: an #Ab6InvarsIds id.
+ *
+ * Get a string corresponding to the attribute name.
+ *
+ * Returns: a string owned by ABINIT, do not free or modify it.
+ */
+#define AB6_INVARS_STR(A) #A
+
+/**
+ * Ab6Invars:
+ *
+ * An object to handle an array of ABINIT datasets, read from a file.
+ */
+typedef int Ab6Invars;
+
+/**
+ * ab6_invars_new_from_file:
+ * @filename: a string, NULL terminated.
+ *
+ * Parse the given file using ABINIT routines and allocate a
+ * dtsets array. This array must be deallocated after use with
+ * ab6_invars_free().
+ *
+ * Returns: an #Ab6Invars object or NULL on failure.
+ */
+Ab6Invars* ab6_invars_new_from_file(const char *filename);
+/**
+ * ab6_invars_new_from_file_with_pseudo:
+ * @filename: a string, NULL terminated.
+ * @pspfiles: an array of strings, NULL terminated. Can be NULL.
+ *
+ * Parse the given file using ABINIT routines and allocate a
+ * dtsets array. This array must be deallocated after use with
+ * ab6_invars_free(). If pseudo files are provided with @pspfiles,
+ * some further initialisations of dtset are permitted.
+ *
+ * Returns: an #Ab6Invars object or NULL on failure.
+ */
+Ab6Invars* ab6_invars_new_from_file_with_pseudo(const char *filename, const char **pspfiles);
+/**
+ * ab6_invars_new_from_string:
+ * @string: a string, NULL terminated.
+ *
+ * Parse the given string using ABINIT routines and allocate a
+ * dtsets array. This array must be deallocated after use with
+ * ab6_invars_free().
+ *
+ * Returns: an #Ab6Invars object or NULL on failure.
+ */
+Ab6Invars* ab6_invars_new_from_string(const char *string);
+/**
+ * ab6_invars_free:
+ * @ptr: the dataset array to handle.
+ *
+ * Clean all allocated memory from the data set allocation.
+ */
+void ab6_invars_free(Ab6Invars *ptr);
+
+/**
+ * ab6_invars_get_ndtset:
+ * @ptr: the dataset array to handle.
+ * @ndtset: a location to store the returned value.
+ *
+ * An array of datasets may contain more than one. Test it with this
+ * routine. @ndtset will contains the number of allocated datasets (in
+ * addition to the default one).
+ *
+ * Returns: #AB6_NO_ERROR if @ptr is valid and correctly parsed.
+ */
+Ab6Error ab6_invars_get_ndtset(Ab6Invars *ptr, int *ndtset);
+/**
+ * ab6_invars_get_integer:
+ * @ptr: the dataset array to handle.
+ * @id: an attribute id, see dtset_c.h.
+ * @idtset: the number of the dtset to read, 0 is default value.
+ * @value: a location to store the returned value.
+ *
+ * Use this method to get the value of an integer attribute. @idtset
+ * must be in [0;n] where n is the returned value of
+ * ab6_invars_get_ndtset(). If @id is unknown, return value is
+ * 0. For real attributes, see ab6_invars_get_real().
+ *
+ * Returns: #AB6_NO_ERROR if values are correctly read.
+ */
+Ab6Error ab6_invars_get_integer(Ab6Invars *ptr, Ab6InvarsIds id,
+                                int idtset, int *value);
+/**
+ * ab6_invars_get_real:
+ * @ptr: the dataset array to handle.
+ * @id: an attribute id, see dtset_c.h ;
+ * @idtset: the number of the dtset to read, 0 is default.
+ * @value: a location to store the returned value.
+ *
+ * Use this method to get the value of a double attribute. @idtset
+ * must be in [0;n] where n is the return value of
+ * ab6_invars_get_ndtset(). If @id is unknown, return value is
+ * undefined. For integer attributes, see ab6_invars_get_integer().
+ *
+ * Returns: #AB6_NO_ERROR if values are correctly read.
+ */
+Ab6Error ab6_invars_get_real(Ab6Invars *ptr, Ab6InvarsIds id,
+                             int idtset, double *value);
+
+/**
+ * ab6_invars_get_shape:
+ * @ptr: the dataset array to handle.
+ * @n: a location to store the number of dimensions.
+ * @dims: an array with 7 integers ;
+ * @id: an attribute id, see dtset_c.h ;
+ * @idtset: the number of the dtset to read, 0 is default.
+ *
+ * This method is used to poll the size of an array attribute. The
+ * shape of the attribute is stored in @dims. Only the @n first values
+ * of @dims are relevant.
+ *
+ * Returns: #AB6_NO_ERROR if values are correctly read.
+ */
+Ab6Error ab6_invars_get_shape(Ab6Invars *ptr, int *n, int dims[7],
+			      Ab6InvarsIds id, int idtset);
+/**
+ * ab6_invars_get_integer_array:
+ * @ptr: the dataset array to handle.
+ * @values: an allocated array of @n values ;
+ * @n: the size of the given array ;
+ * @id: an attribute id, see dtset_c.h ;
+ * @idtset: the number of the dtset to read, 0 is default.
+ *
+ * This method is used to read the values of an array. The array must
+ * already be allocated. To know its size, use ab6_invars_get_shape().
+ *
+ * Returns: #AB6_NO_ERROR if values are correctly read.
+ */
+Ab6Error ab6_invars_get_integer_array(Ab6Invars *ptr, int *values, size_t n,
+				      Ab6InvarsIds id, int idtset);
+/**
+ * ab6_invars_get_real_array:
+ * @ptr: the dataset array to handle.
+ * @values: an allocated array of @n values ;
+ * @n: the size of the given array ;
+ * @id: an attribute id, see dtset_c.h ;
+ * @idtset: the number of the dtset to read, 0 is default.
+ *
+ * This method is used to read the values of an array. The array must
+ * already be allocated. To know its size, use ab6_invars_get_shape().
+ *
+ * Returns: #AB6_NO_ERROR if values are correctly read.
+ */
+Ab6Error ab6_invars_get_real_array(Ab6Invars *ptr, double *values, size_t n,
+				   Ab6InvarsIds id, int idtset);
+
+#endif

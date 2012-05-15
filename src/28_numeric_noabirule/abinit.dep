@@ -1,0 +1,43 @@
+#Dependencies (inside the directory) of the directory ./src/28_numeric_noabirule
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_28_numeric_noabirule.$(MODEXT) \
+	m_bspline.$(MODEXT) \
+	m_colquad.$(MODEXT) \
+	m_kptrank.$(MODEXT) \
+	m_lebedev.$(MODEXT) \
+	m_levenberg_marquardt.$(MODEXT) \
+	m_numeric_tools.$(MODEXT) \
+	m_per_cond.$(MODEXT) \
+	m_random_zbq.$(MODEXT) \
+	m_splines.$(MODEXT) \
+	m_tetrahedron.$(MODEXT) 
+
+interp.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) m_numeric_tools.$(OBJEXT) 
+
+j0y0.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+j1y1.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+k0.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+k1.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+lebedev_laikov.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+m_lebedev.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+m_numeric_tools.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 
+
+m_tetrahedron.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) m_kptrank.$(OBJEXT) 
+
+test_zgefa_zgedi.$(OBJEXT): interfaces_28_numeric_noabirule.$(OBJEXT) 

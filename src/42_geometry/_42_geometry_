@@ -1,0 +1,67 @@
+!!****d* ABINIT/42_geometry
+!! NAME
+!! 42_geometry
+!!
+!! DESCRIPTION
+!! This directory contains level-2 routines that are related to the
+!! treatment of the unit cell, the atomic positions inside
+!! the unit cell (reduced coordinates or cartesian coordinates),
+!! and the symmetry operations related
+!! to the cell and atoms. In particular, the symmetry
+!! recognition (symanal.F90, symspgr.F90), 
+!! the Bravais lattice recognition (symbrav.F90),
+!! as well as the space group database (symgroup.F90)
+!! can be found here.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! bldgrp.F90
+!! bldgrpaf.F90
+!! bonds.F90
+!! chkdilatmx.F90
+!! chkgrp.F90
+!! chkorthsy.F90
+!! chkprimit.F90
+!! gensymshub.F90
+!! gensymshub4.F90
+!! gensymspgr.F90
+!! getptgroupma.F90
+!! getspinrot.F90
+!! holocell.F90
+!! metric.F90
+!! mkrdim.F90
+!! operat.F90
+!! prtspgroup.F90
+!! ptgmadata.F90
+!! smallprim.F90
+!! spgdata.F90
+!! symanal.F90
+!! symatm.F90
+!! symaxes.F90
+!! symbrav.F90
+!! symchk.F90
+!! symdet.F90
+!! symfind.F90
+!! symlist_bcc.F90
+!! symlist_fcc.F90
+!! symlist_others.F90
+!! symlist_prim.F90
+!! symmultsg.F90
+!! symplanes.F90
+!! symrelrot.F90
+!! symsgcube.F90
+!! symsghexa.F90
+!! symsgmono.F90
+!! symsgortho.F90
+!! symsgtetra.F90
+!! symspgr.F90
+!! symzat.F90
+!! xredxcart.F90
+!!
+!!***

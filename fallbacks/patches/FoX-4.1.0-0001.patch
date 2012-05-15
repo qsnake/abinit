@@ -1,0 +1,128 @@
+diff -urN FoX-4.1.0.old/FoX-config.in FoX-4.1.0.new/FoX-config.in
+--- FoX-4.1.0.old/FoX-config.in	2010-02-09 10:55:53.000000000 +0100
++++ FoX-4.1.0.new/FoX-config.in	2011-08-03 12:49:24.428165071 +0200
+@@ -1,7 +1,7 @@
+ #!/bin/sh
+ 
+ comp_prefix=@OBJSDIR@
+-moddir=`@CYGPATH_W@ $comp_prefix/finclude`
++moddir=`@CYGPATH_W@ $comp_prefix/include`
+ libdir=`@CYGPATH_W@ $comp_prefix/lib`
+ version=@PACKAGE_VERSION@
+ 
+diff -urN FoX-4.1.0.old/Makefile FoX-4.1.0.new/Makefile
+--- FoX-4.1.0.old/Makefile	2010-02-09 10:55:53.000000000 +0100
++++ FoX-4.1.0.new/Makefile	2011-08-03 13:16:27.928208582 +0200
+@@ -6,12 +6,12 @@
+ 	@if [ -z "$(BUILD_TARGETS)" ]; then echo "FoX is not configured!"; else touch .FoX; fi
+ #
+ objsdir:
+-	mkdir -p objs/lib objs/finclude
++	mkdir -p objs/lib objs/include
+ #
+ install: objsdir $(BUILD_TARGETS)
+-	$(MKDIR_P) $(install_prefix)/lib $(install_prefix)/finclude $(install_prefix)/bin
+-	$(INSTALL) objs/lib/* $(install_prefix)/lib
+-	$(INSTALL) -m 644 objs/finclude/* $(install_prefix)/finclude
++	$(MKDIR_P) $(install_prefix)/lib $(install_prefix)/include $(install_prefix)/bin
++	$(INSTALL) -m 644 objs/lib/* $(install_prefix)/lib
++	$(INSTALL) -m 644 objs/include/* $(install_prefix)/include
+ 	$(INSTALL) FoX-config $(install_prefix)/bin
+ #
+ examples_build: $(BUILD_TARGETS)
+diff -urN FoX-4.1.0.old/arch.make.in FoX-4.1.0.new/arch.make.in
+--- FoX-4.1.0.old/arch.make.in	2010-02-09 10:55:53.000000000 +0100
++++ FoX-4.1.0.new/arch.make.in	2011-08-03 12:49:24.408167767 +0200
+@@ -7,7 +7,7 @@
+ compile_prefix=@OBJSDIR@
+ install_prefix=@prefix@
+ LIB_DIR=$(compile_prefix)/lib
+-MOD_DIR=$(compile_prefix)/finclude
++MOD_DIR=$(compile_prefix)/include
+ 
+ FPP=@FPP@
+ FC=@FC@
+diff -urN FoX-4.1.0.old/common/makefile FoX-4.1.0.new/common/makefile
+--- FoX-4.1.0.old/common/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/common/makefile	2011-08-03 12:49:24.408167767 +0200
+@@ -11,7 +11,7 @@
+          m_common_content_model.$(OBJEXT)
+ #
+ LIBRARY=libFoX_common.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ #
+ include ../arch.make
+diff -urN FoX-4.1.0.old/dom/makefile FoX-4.1.0.new/dom/makefile
+--- FoX-4.1.0.old/dom/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/dom/makefile	2011-08-03 12:49:24.428165071 +0200
+@@ -5,7 +5,7 @@
+ 	  m_dom_extras.$(OBJEXT) m_dom_dom.$(OBJEXT) FoX_dom.$(OBJEXT)
+ #
+ LIBRARY=libFoX_dom.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ include ../arch.make
+ #
+diff -urN FoX-4.1.0.old/sax/makefile FoX-4.1.0.new/sax/makefile
+--- FoX-4.1.0.old/sax/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/sax/makefile	2011-08-03 12:49:24.418163590 +0200
+@@ -7,7 +7,7 @@
+           FoX_sax.$(OBJEXT)
+ #
+ LIBRARY=libFoX_sax.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ include ../arch.make
+ #
+diff -urN FoX-4.1.0.old/utils/makefile FoX-4.1.0.new/utils/makefile
+--- FoX-4.1.0.old/utils/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/utils/makefile	2011-08-03 12:49:24.418163590 +0200
+@@ -5,7 +5,7 @@
+          fox_m_utils_uuid.$(OBJEXT) fox_m_utils_uri.$(OBJEXT)
+ #
+ LIBRARY=libFoX_utils.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ include ../arch.make
+ #
+diff -urN FoX-4.1.0.old/wcml/makefile FoX-4.1.0.new/wcml/makefile
+--- FoX-4.1.0.old/wcml/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/wcml/makefile	2011-08-03 12:49:24.408167767 +0200
+@@ -7,7 +7,7 @@
+          m_wcml_lists.$(OBJEXT)
+ #
+ LIBRARY=libFoX_wcml.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ #
+ include ../arch.make
+diff -urN FoX-4.1.0.old/wkml/makefile FoX-4.1.0.new/wkml/makefile
+--- FoX-4.1.0.old/wkml/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/wkml/makefile	2011-08-03 12:49:24.418163590 +0200
+@@ -4,7 +4,7 @@
+ OBJFILES=FoX_wkml.$(OBJEXT) m_wkml_lowlevel.$(OBJEXT) m_wkml_color.$(OBJEXT) m_wkml_styling.$(OBJEXT) m_wkml_features.$(OBJEXT) m_wkml_coverage.$(OBJEXT) m_wkml_core.$(OBJEXT) m_wkml_contours.$(OBJEXT) m_contours.$(OBJEXT) m_wkml_color_def.$(OBJEXT) m_wkml_chart.$(OBJEXT)
+ #
+ LIBRARY=libFoX_wkml.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ #
+ include ../arch.make
+diff -urN FoX-4.1.0.old/wxml/makefile FoX-4.1.0.new/wxml/makefile
+--- FoX-4.1.0.old/wxml/makefile	2010-02-09 10:59:59.000000000 +0100
++++ FoX-4.1.0.new/wxml/makefile	2011-08-03 12:49:24.408167767 +0200
+@@ -5,7 +5,7 @@
+           m_wxml_overloads.$(OBJEXT) FoX_wxml.$(OBJEXT)
+ #
+ LIBRARY=libFoX_wxml.$(LIBEXT)
+-INCFLAGS=$(MOD_PREFIX)../objs/finclude
++INCFLAGS=$(MOD_PREFIX)../objs/include
+ #
+ #
+ include ../arch.make

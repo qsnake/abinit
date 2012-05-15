@@ -1,0 +1,22 @@
+# Default target
+all-local: help
+
+# Help
+help:
+	@cat $(top_srcdir)/doc/help_make/help_make_doc
+
+# ---------------------------------------------------------------------------- #
+
+pdf-docs:
+	cd build && $(MAKE) -f build-docs.mk distclean all_targets @SET_MAKE@ && \
+	  $(MAKE) -f build-docs.mk clean @SET_MAKE@
+	cd macroave && $(MAKE) -f macroave-docs.mk distclean all_targets @SET_MAKE@ && \
+	  $(MAKE) -f macroave-docs.mk clean @SET_MAKE@
+	cd presentation && $(MAKE) -f presentation-docs.mk distclean all_targets @SET_MAKE@ && \
+	  $(MAKE) -f presentation-docs.mk clean @SET_MAKE@
+	cd theory && $(MAKE) -f theory-docs.mk distclean all_targets @SET_MAKE@ && \
+	  $(MAKE) -f theory-docs.mk clean @SET_MAKE@
+	cd users && $(MAKE) -f users-docs.mk distclean all_targets @SET_MAKE@ && \
+	  $(MAKE) -f users-docs.mk clean @SET_MAKE@
+	cd versioning && $(MAKE) -f versioning-docs.mk distclean all_targets @SET_MAKE@ && \
+	  $(MAKE) -f versioning-docs.mk clean @SET_MAKE@

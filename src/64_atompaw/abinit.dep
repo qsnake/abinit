@@ -1,0 +1,21 @@
+#Dependencies (inside the directory) of the directory ./src/64_atompaw
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_64_atompaw.$(MODEXT) \
+	m_atom.$(MODEXT) \
+	m_lmn_indices.$(MODEXT) 
+
+m_atom.$(OBJEXT): m_lmn_indices.$(OBJEXT) 
+
+pawdij0.$(OBJEXT): interfaces_64_atompaw.$(OBJEXT) 
+
+pawkij.$(OBJEXT): interfaces_64_atompaw.$(OBJEXT) 

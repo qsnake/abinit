@@ -1,0 +1,104 @@
+# -*- Python -*-
+#
+# Copyright (C) 2005-2012 ABINIT Group (Yann Pouillon)
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 3paw library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "atomden.F90",
+ "chkpawovlp.F90",
+ "denfgr.F90",
+ "expibi.F90",
+ "expibr.F90",
+ "fourier_interpol.F90",
+ "initang.F90",
+ "initrhoij.F90",
+ "int_ang.F90",
+ "Lij.F90",
+ "linear_optics_paw.F90",
+ "mag_loc_k.F90",
+ "make_efg_onsite.F90",
+ "make_fc_paw.F90",
+ "m_paw_commutator.F90",
+ "m_paw_dmft.F90",
+ "m_paw_pwij.F90",
+ "m_paw_slater.F90",
+ "m_paw_toolbox.F90",
+ "nhatgrid.F90",
+ "optics_paw.F90",
+ "optics_paw_core.F90",
+ "partial_dos_fractions_paw.F90",
+ "prtfatbands.F90",
+ "pawaccrhoij.F90",
+ "pawalloc.F90",
+ "pawdenpot.F90",
+ "pawdensities.F90",
+ "pawdij.F90",
+ "pawdijhartree.F90",
+ "pawdijso.F90",
+ "pawexpiqr.F90",
+ "pawfrnhat.F90",
+ "pawgrnl.F90",
+ "pawgylm.F90",
+ "pawgylmg.F90",
+ "pawinit.F90",
+ "pawlsylm.F90",
+ "pawmkaewf.F90",
+ "pawmknhat.F90",
+ "pawmknhat_psipsi.F90",
+ "pawmkrho.F90",
+ "pawmkrhoij.F90",
+ "pawnabla_init.F90",
+ "pawnstd2e.F90",
+ "pawpolev.F90",
+ "pawprt.F90",
+ "pawpupot.F90",
+ "pawpuxinit.F90",
+ "pawsushat.F90",
+ "pawtwdij.F90",
+ "pawtwdij_1.F90",
+ "pawtwdij_2a.F90",
+ "pawtwdij_2b.F90",
+ "pawtwdij_2c.F90",
+ "pawtwdij_2d.F90",
+ "pawtwdij_2e.F90",
+ "pawtwdij_2f.F90",
+ "pawuenergy.F90",
+ "pawuj_det.F90",
+ "pawuj_ini.F90",
+ "pawuj_red.F90",
+ "pawuj_utils.F90",
+ "pawxenergy.F90",
+ "pawxpot.F90",
+ "paw_mknewh0.F90",
+ "paw_symcprj.F90",
+ "qijb_bk.F90",
+ "qijb_kk.F90",
+ "read_atomden.F90",
+ "setnoccmmp.F90",
+ "setrhoijpbe0.F90",
+ "setsymrhoij.F90",
+ "simple_j_dia.F90",
+ "smatrix_k_paw.F90",
+ "smatrix_paw.F90",
+ "smatrix_pawinit.F90",
+ "spline_paw_fncs.F90",
+ "sym_cprj_kn.F90",
+ "symdij.F90",
+ "symrhoij.F90",
+ "transgrid.F90"]
+# IMPORTANT : please use the alphabetic order in the previous list. Do NOT add the new routine names at the end of the list.
+# This is important to avoid numerous conflicts at merge time. Thank you very much. Xavier.

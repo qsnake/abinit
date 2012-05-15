@@ -1,0 +1,82 @@
+README for ABINIT
+=================
+
+
+
+<pre>
+	Copyright (C) 2006-2012 ABINIT Group
+
+	This file is part of ABINIT.
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2, or (at your option)
+	any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; see the file COPYING. If not, write to
+	the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+	Boston, MA 02111-1307, USA.
+</pre>
+
+
+
+ABINIT is an atomic-scale simulation software suite.
+
+Please see the file COPYING for copying conditions.
+
+Please see the files in the Infos/ directory for documentation that can be
+printed with TeX, or read with a web browser. There will be man pages soon.
+
+See the file INSTALL for generic compilation and installation instructions,
+and the file INSTALLME for instructions specific to ABINIT.
+
+Additional information can be found on the ABINIT website:
+
+	http://www.abinit.org/
+
+Please read carefully the Infos/problem_report before reporting bugs to
+Xavier Gonze <gonze@pcpm.ucl.ac.be>.
+
+
+
+ABINIT-related mailing lists
+----------------------------
+
+ABINIT has several mailing lists, all hosted by abinit.org. They do not
+allow posts from non-subscribers.
+
+announce@abinit.org:
+
+    TODO
+
+forum@abinit.org:
+
+    TODO
+
+developers@abinit.org:
+
+    The mailing list for developers. This is the preferred place
+    to post bug reports and suggestions, as well as discuss
+    development-related matters.
+
+    To post to the list, send mail to <developers@abinit.org>. To
+    subscribe, send mail to <developers-subscribe@abinit.org>.
+
+    This mailing list is archived at:
+
+    http://www.abinit.org/wws/arc/forum
+
+advisory@abinit.org:
+
+    TODO
+
+gnuarch@abinit.org:
+
+    TODO
+

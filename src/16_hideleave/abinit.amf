@@ -1,0 +1,3 @@
+CLEANFILES += m_build_info.$(MODEXT)
+
+leave_new.$(OBJEXT): m_build_info.$(OBJEXT)

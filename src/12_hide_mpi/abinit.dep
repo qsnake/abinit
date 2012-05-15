@@ -1,0 +1,14 @@
+#Dependencies (inside the directory) of the directory ./src/12_hide_mpi
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_12_hide_mpi.$(MODEXT) \
+	m_xmpi.$(MODEXT) 

@@ -1,0 +1,72 @@
+ABINIT utilities
+================
+
+
+TO BE UPDATED
+
+
+
+In this directory, different utilities for the ABINIT code
+are (and will be) placed. There are two groups of such utilities :
+
+ A. Those related to the code maintenance
+ B. Those for the computation of some physical property 
+
+----------------------------------------------------------------
+
+A. Code maintenance
+-------------------
+
+1) fldiff.pl   
+ The source of the fldiff script, written in perl. This source
+ will be preprocessed automatically when one of the following
+ will be issued in the ~ABINIT directory :
+ make abinit, make lapack, make ffts, make numrecip ...
+ The preprocessing operation will simply add at the top
+ of the script the location of the perl package, found in the
+ makefile_macros file adapted for the specific machine.
+ The fldiff script is used for automatic analysis of the output of
+ test cases, see directories ~ABINIT/Test_v1, ~ABINIT/Test_fast,
+ ~ABINIT/Test_paral .
+
+2) FT77to90 and fixed_to_free
+ 'FT77to90' is a perl script that is able to translate a file written
+ in Fortran77 fixed format to Fortran90 free format. What it does
+ is relatively well explained. The csh script 'fixed_to_free'
+ is the driver of 'FT77to90', and slightly change its output.
+
+3) abirules.pl
+ The source of the abirules script. The latter is able to enforce 
+ automatically some of the ABINIT rules in F90 files.
+ 
+4) change
+ A bash script, to change automatically some expression into another
+ is a whole set of files, while making back-up copies of the old version.
+
+5) mkroutine
+ Make a new F90 routine, with the correct robodoc header, and 
+ structure that follows ABINIT rules.
+
+6) parents
+ Locate all parents and children of a F90 routines, and write
+ them in the routine.
+
+7) var-file-index.py
+ Build the file "Infos/varfileindex.html" which refers all the
+ input variables inside the input files of tests.
+
+----------------------------------------------------------------
+
+B. Computation of physical properties
+-------------------------------------
+
+1) dynamic_pol.f
+ Compute the frequency-dependent polarisability, from the TDDFT
+ output of ABINIT
+
+2) MatLab_data_analysis
+ A directory that contains a script for the MaLab treatment
+ of data from ABINIT output.
+
+3) get_irreps.py
+ A script to find the irreducible representation to which the Gamma phonons belong

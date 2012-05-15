@@ -1,0 +1,42 @@
+#Dependencies (inside the directory) of the directory ./src/56_recipspace
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_56_recipspace.$(MODEXT) \
+	m_ab6_kpoints.$(MODEXT) \
+	m_bz_mesh.$(MODEXT) \
+	m_gsphere.$(MODEXT) 
+
+getcut.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+getkgrid.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+getmpw.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+getng.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+kpgio.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+m_ab6_kpoints.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+m_bz_mesh.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+m_gsphere.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+mknesting.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+outnesting.$(OBJEXT): m_bz_mesh.$(OBJEXT) 
+
+setshells.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+setsym.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 
+
+testkgrid.$(OBJEXT): interfaces_56_recipspace.$(OBJEXT) 

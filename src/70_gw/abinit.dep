@@ -1,0 +1,71 @@
+#Dependencies (inside the directory) of the directory ./src/70_gw
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_70_gw.$(MODEXT) \
+	m_FFT_prof.$(MODEXT) \
+	m_dyson_solver.$(MODEXT) \
+	m_gwannier.$(MODEXT) \
+	m_model_screening.$(MODEXT) \
+	m_ppmodel.$(MODEXT) \
+	m_qparticles.$(MODEXT) \
+	m_screen.$(MODEXT) \
+	m_screening.$(MODEXT) \
+	m_sigma_results.$(MODEXT) \
+	m_stern_gw.$(MODEXT) 
+
+accumulate_chi0_q0.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+calc_sig_ppm_eet.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_ppmodel.$(OBJEXT) m_sigma_results.$(OBJEXT) 
+
+calc_sigc_me.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_ppmodel.$(OBJEXT) m_screening.$(OBJEXT) m_sigma_results.$(OBJEXT) 
+
+calc_sigc_pole_cd.$(OBJEXT): m_model_screening.$(OBJEXT) 
+
+calc_sigx_me.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+cchi0.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+cchi0_eet.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_sigma_results.$(OBJEXT) 
+
+cchi0q0.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+cchi0q0_intraband.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+check_completeness.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+cohsex_me.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_screening.$(OBJEXT) m_sigma_results.$(OBJEXT) 
+
+cutoff_m_elem.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+interfaces_70_gw.$(OBJEXT): m_ppmodel.$(OBJEXT) m_screening.$(OBJEXT) m_sigma_results.$(OBJEXT) 
+
+m_dyson_solver.$(OBJEXT): m_sigma_results.$(OBJEXT) 
+
+m_gwannier.$(OBJEXT): m_sigma_results.$(OBJEXT) 
+
+m_qparticles.$(OBJEXT): m_sigma_results.$(OBJEXT) 
+
+m_screen.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_ppmodel.$(OBJEXT) m_screening.$(OBJEXT) 
+
+m_screening.$(OBJEXT): m_model_screening.$(OBJEXT) 
+
+m_sigma_results.$(OBJEXT): m_screening.$(OBJEXT) 
+
+mlwfovlp_qp.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_qparticles.$(OBJEXT) 
+
+setup_screening.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+setup_sigma.$(OBJEXT): interfaces_70_gw.$(OBJEXT) m_screening.$(OBJEXT) 
+
+spectral.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 
+
+trashme.$(OBJEXT): interfaces_70_gw.$(OBJEXT) 

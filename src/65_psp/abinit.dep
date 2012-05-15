@@ -1,0 +1,55 @@
+#Dependencies (inside the directory) of the directory ./src/65_psp
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_65_psp.$(MODEXT) 
+
+psp10in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp1cc.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp1in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp1lo.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp1nl.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp2in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp3in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp5in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp6cc.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp6cc_drh.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp6in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp7in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp8in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp8nl.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psp9in.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+pspatm.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+pspini.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psps_free.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+psps_init_global.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+smoothvlocal.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 
+
+upf2abinit.$(OBJEXT): interfaces_65_psp.$(OBJEXT) 

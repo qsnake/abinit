@@ -1,0 +1,59 @@
+#Dependencies (inside the directory) of the directory ./src/56_xc
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_56_xc.$(MODEXT) \
+	libxc_functionals.$(MODEXT) \
+	m_electronpositron.$(MODEXT) 
+
+drivexc.$(OBJEXT): interfaces_56_xc.$(OBJEXT) m_libxc_functionals.$(OBJEXT) 
+
+gammapositron.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+interfaces_56_xc.$(OBJEXT): m_electronpositron.$(OBJEXT) 
+
+mkvxc3.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+mkvxcgga3.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+pawxc.$(OBJEXT): interfaces_56_xc.$(OBJEXT) m_libxc_functionals.$(OBJEXT) 
+
+pawxcm.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+pawxcm3.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+pawxcmpositron.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+pawxcpositron.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+pawxcsph.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+pawxcsphpositron.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+rhohxc.$(OBJEXT): interfaces_56_xc.$(OBJEXT) m_electronpositron.$(OBJEXT) m_libxc_functionals.$(OBJEXT) 
+
+rhohxcpositron.$(OBJEXT): interfaces_56_xc.$(OBJEXT) m_electronpositron.$(OBJEXT) 
+
+size_dvxc.$(OBJEXT): m_libxc_functionals.$(OBJEXT) 
+
+xc_kernel.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+xc_kernel_ADA.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+xcden.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+xchcth.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+xcpbe.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+xcpositron.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 
+
+xcpot.$(OBJEXT): interfaces_56_xc.$(OBJEXT) 

@@ -1,0 +1,25 @@
+!!****d* ABINIT/47_xml
+!! NAME
+!! 47_xml
+!!
+!! DESCRIPTION
+!! This directory contains level-3 routines related to the
+!! eXtended Markup Language features of ABINIT.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! append_cml.F90
+!! append_cml2.F90
+!! findmarkup.F90
+!! getattribute.F90
+!! importcml.F90
+!! prt_cml.F90
+!! prt_cml2.F90
+!!
+!!***

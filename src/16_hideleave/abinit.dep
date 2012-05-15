@@ -1,0 +1,19 @@
+#Dependencies (inside the directory) of the directory ./src/16_hideleave
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_16_hideleave.$(MODEXT) \
+	m_build_info_fake.$(MODEXT) \
+	m_cppopts_dumper.$(MODEXT) 
+
+leave_new.$(OBJEXT): interfaces_16_hideleave.$(OBJEXT) 
+
+print_ierr.$(OBJEXT): interfaces_16_hideleave.$(OBJEXT) 

@@ -1,0 +1,83 @@
+#Dependencies (inside the directory) of the directory ./src/43_ptgroups
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_43_ptgroups.$(MODEXT) \
+	m_defs_ptgroups.$(MODEXT) \
+	m_ptgroups.$(MODEXT) 
+
+interfaces_43_ptgroups.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+m_ptgroups.$(OBJEXT): interfaces_43_ptgroups.$(OBJEXT) m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C1.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C2.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C2h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C2v.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C3.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C3h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C3i.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C3v.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C4.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C4h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C4v.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C6.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C6h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_C6v.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_Ci.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_Cs.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D2.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D2d.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D2h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D3.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D3d.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D3h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D4.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D4h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D6.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_D6h.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_O.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_Oh.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_S4.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_T.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_Td.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 
+
+ptg_Th.$(OBJEXT): m_defs_ptgroups.$(OBJEXT) 

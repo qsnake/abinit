@@ -1,0 +1,67 @@
+# -*- Python -*-
+#
+# Copyright (C) 2005-2012 ABINIT Group (Yann Pouillon)
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 95_drive library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "abi_init_globals.F90",
+ "afterscfloop.F90",
+ "bethe_salpeter.F90",
+ "defs_scfcvargs.F90",
+ "driver.F90",
+ "dtfil_init1.F90",
+ "dtfil_init2.F90",
+ "dtfil_init_img.F90",
+ "elpolariz.F90",
+ "gstate.F90",
+ "gstateimg.F90",
+ "gw_driver.F90",
+ "iofn1.F90",
+ "loop3dte.F90",
+ "loper3.F90",
+ "mover.F90",
+ "nonlinear.F90",
+ "outscfcv.F90",
+ "papi_init.F90",
+ "pawuj_drive.F90",
+ "respfn.F90",
+ "scfcv.F90",
+ "scfcv_new.F90",
+ "scfcv_new2.F90",
+ "scfcv_init.F90",
+ "scfcv_init2.F90",
+ "scphon.F90",
+ "scphon_build_qsym_map.F90",
+ "scphon_check_fcart.F90",
+ "scphon_dynmat_to_freq2.F90",
+ "scphon_free_energy.F90",
+ "scphon_freq_to_dynmat.F90",
+ "scphon_freq_to_normmode.F90",
+ "scphon_ft_fcart.F90",
+ "scphon_interpolate_phonon_and_dos.F90",
+ "scphon_make_phonon_dos.F90",
+ "scphon_new_frequencies.F90",
+ "scphon_supercell_vectors_init.F90",
+ "scphon_update_xcart.F90",
+ "scphon_phonon_init.F90",
+ "scphon_qpoint_init.F90",
+ "screening.F90",
+ "sigma.F90",
+ "testfi.F90",
+ "timana.F90"]
+# IMPORTANT : please use the alphabetic order in the previous list. Do NOT add the new routine names at the end of the list.
+# This is important to avoid numerous conflicts at merge time. Thank you very much. Xavier.

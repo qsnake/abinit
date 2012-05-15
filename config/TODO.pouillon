@@ -1,0 +1,63 @@
+TODO list
+=========
+
+### Input variables ###
+
+ * I1. Add input variable "dbginfo" + routine "wrtinfo".
+
+
+
+### Run-time improvements ###
+
+ * Design a unified format for messages.
+
+
+
+### Build system ###
+
+ * An idea would be to provide a database of pre-configured bundles, with
+   names, for e.g. 64-bit architectures. They could be accessed through a
+    --with-*-flavor option.
+
+ * Enable parsing at developer-level of the config/specs/*.cf files.
+
+ * AX_COMPILER_VENDOR
+ * AX_CPU_VENDOR
+ * AX_F90_*
+ * AX_PYTHON
+
+ * Remove artificial dependencies on BigDFT, due to src/10_defs/depending
+   on BigDFT (=> move BigDFT-related modules elsewhere?).
+
+ * Define types for library builds: abinit (build it), system (auto-detected),
+   custom (from command-line).
+
+ * Move as many dependencies as possible towards low levels.
+
+
+Problems that will rise-up in the future
+========================================
+
+Language support
+----------------
+
+ * Fortran 77 will not be supported anymore in the core sources.
+
+
+
+Preprocessing options
+---------------------
+
+The use of the preprocessing options should be reviewed. What about VMS?
+T3E? OPENMP? MPI_EXT? TEST_AIM? What about introducing a proper MPI2
+support? Is ABINITGW still interesting?
+
+
+
+Plug-in support
+---------------
+
+The build system should automatically look for installed plug-ins in
+/opt/etsf, and maybe /usr/local. Looking in /usr should be discussed
+(e.g. NetCDF packages without F90 interface).
+

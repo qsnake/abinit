@@ -1,0 +1,65 @@
+#Dependencies (inside the directory) of the directory ./src/42_geometry
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_42_geometry.$(MODEXT) \
+	m_ab6_symmetry.$(MODEXT) \
+	m_crystal.$(MODEXT) 
+
+bonds_lgth_angles.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+dist2.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+gensymspgr.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) m_crystal.$(OBJEXT) 
+
+ioniondist.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+m_ab6_symmetry.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+m_crystal.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+prt_cif.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+prtspgroup.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+randomcellpos.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+remove_inversion.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+shellstruct.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+smallprim.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+stresssym.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symanal.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symatm.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symbrav.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symcharac.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symlatt.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symptgroup.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symsgcube.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symsghexa.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symsgmono.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symsgortho.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symsgtetra.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 
+
+symspgr.$(OBJEXT): interfaces_42_geometry.$(OBJEXT) 

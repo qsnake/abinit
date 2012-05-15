@@ -1,0 +1,24 @@
+#Dependencies (inside the directory) of the directory ./src/68_rsprc
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_68_rsprc.$(MODEXT) \
+	mod_prc_memory.$(MODEXT) 
+
+newrho.$(OBJEXT): interfaces_68_rsprc.$(OBJEXT) 
+
+newvtr.$(OBJEXT): interfaces_68_rsprc.$(OBJEXT) 
+
+prcref.$(OBJEXT): interfaces_68_rsprc.$(OBJEXT) 
+
+prcref_PMA.$(OBJEXT): interfaces_68_rsprc.$(OBJEXT) 
+
+prcrskerker1.$(OBJEXT): mod_prc_memory.$(OBJEXT) 

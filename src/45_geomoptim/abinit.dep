@@ -1,0 +1,107 @@
+#Dependencies (inside the directory) of the directory ./src/45_geomoptim
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_mover.$(MODEXT) \
+	interfaces_45_geomoptim.$(MODEXT) \
+	m_delocint.$(MODEXT) \
+	m_pimd.$(MODEXT) \
+	m_use_ga.$(MODEXT) 
+
+calc_b_matrix.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+calc_prim_int.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+defs_mover.$(OBJEXT): m_delocint.$(OBJEXT) 
+
+deloc2xcart.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+hessinit.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+hist2var.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+hist_compare.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+interfaces_45_geomoptim.$(OBJEXT): defs_mover.$(OBJEXT) m_delocint.$(OBJEXT) m_pimd.$(OBJEXT) 
+
+isotemp.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+make_angles.$(OBJEXT): defs_mover.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+make_angles_new.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+make_bonds.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+make_bonds_new.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+make_dihedrals.$(OBJEXT): defs_mover.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+make_prim_internals.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+pimd_langevin_npt.$(OBJEXT): m_pimd.$(OBJEXT) 
+
+pimd_langevin_nvt.$(OBJEXT): m_pimd.$(OBJEXT) 
+
+pimd_nosehoover_npt.$(OBJEXT): m_pimd.$(OBJEXT) 
+
+pimd_nosehoover_nvt.$(OBJEXT): m_pimd.$(OBJEXT) 
+
+prec_simple.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_bfgs.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_delocint.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+pred_diisrelax.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_isokinetic.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_isothermal.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_langevin.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_moldyn.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_nose.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_simple.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+pred_srkna14.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_steepdesc.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+pred_verlet.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+predict_pimd.$(OBJEXT): interfaces_45_geomoptim.$(OBJEXT) m_pimd.$(OBJEXT) 
+
+predictimg.$(OBJEXT): interfaces_45_geomoptim.$(OBJEXT) m_pimd.$(OBJEXT) m_use_ga.$(OBJEXT) 
+
+print_bonds.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+print_phonfreq.$(OBJEXT): interfaces_45_geomoptim.$(OBJEXT) 
+
+prtxfase.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+var2hist.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+vel2hist.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+xcart2deloc.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+xfh_recover_deloc.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) m_delocint.$(OBJEXT) 
+
+xfh_recover_new.$(OBJEXT): defs_mover.$(OBJEXT) interfaces_45_geomoptim.$(OBJEXT) 
+
+xfh_update.$(OBJEXT): defs_mover.$(OBJEXT) 
+
+xfpack_vin2x.$(OBJEXT): interfaces_45_geomoptim.$(OBJEXT) 
+
+xfpack_x2vin.$(OBJEXT): interfaces_45_geomoptim.$(OBJEXT) 

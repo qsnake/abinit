@@ -1,0 +1,2 @@
+EXTRA_DIST += \
+	xallgather_mpi.F90 xallgatherv_mpi.F90 xgather_mpi.F90 xgatherv_mpi.F90  xcast_mpi.F90  xmin_mpi.F90   xsum_master.F90 xalltoall_mpi.F90    xexch_mpi.F90  xrecv_mpi.F90  xsum_mpi.F90 xalltoallv_mpi.F90   xmax_mpi.F90   xsend_mpi.F90  xscatterv_mpi.F90

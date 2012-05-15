@@ -1,0 +1,81 @@
+!!****d* ABINIT/70_gw
+!! NAME
+!! 70_gw
+!!
+!! DESCRIPTION
+!! This directory contains level-5 routines used
+!! to treat the GW approximation.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! assemblychi0.F90
+!! bz1.F90
+!! ccgradvnl.F90
+!! cchi0.F90
+!! cchi0q0.F90
+!! cigfft.F90
+!! ckxcldag.F90
+!! ckxcldar.F90
+!! clcqpg.F90
+!! cmevxclda.F90
+!! cppmpar.F90
+!! crho.F90
+!! csigme.F90
+!! cvc.F90
+!! cvxclda.F90
+!! density.F90
+!! diffvc.F90
+!! diffvx.F90
+!! difrel.F90
+!! difvxc.F90
+!! dosym.F90
+!! dosymr.F90
+!! dotproductqrc.F90
+!! fermi.F90
+!! fftwfn.F90
+!! findk.F90
+!! findkp.F90
+!! findnq.F90
+!! findq.F90
+!! findqg0.F90
+!! findshells.F90
+!! fkin.F90
+!! hermitianize.F90
+!! icmpk2.F90
+!! identk.F90
+!! identq.F90
+!! iosig.F90
+!! itst0.F90
+!! lattice.F90
+!! linfit.F90
+!! modx.F90
+!! pclock.F90
+!! printcm.F90
+!! printv.F90
+!! rdkss.F90
+!! rdlda.F90
+!! rdldaabinit.F90
+!! rdscr.F90
+!! rel.F90
+!! rho_tw_g.F90
+!! scpdt.F90
+!! setmesh.F90
+!! setshells.F90
+!! sizefft.F90
+!! surot.F90
+!! testlda.F90
+!! testscr.F90
+!! vcjas.F90
+!! vlngth.F90
+!! vxcca.F90
+!! vxjas.F90
+!! vxnr.F90
+!! wrscr.F90
+!!
+!!***

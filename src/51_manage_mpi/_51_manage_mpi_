@@ -1,0 +1,38 @@
+!!****d* ABINIT/51_manage_mpi
+!! NAME
+!! 51_manage_mpi
+!!
+!! DESCRIPTION
+!! This directory contains routines that are
+!! used to perform very basics tasks in the ABINIT package, including
+!! managing parallel behaviour, and needs to call MPI routines.
+!! Basic timing routines are also included in this directory.
+!! Some of these routines have two versions : one sequential, and
+!! one MPI-parallel.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! clnmpi_fft
+!! clnmpi_gs
+!! distrb2
+!! herald
+!! initmpi_fft
+!! initmpi_gs
+!! initmpi_respfn
+!! initmpi_seq
+!! leave_new
+!! leave_test
+!! pre_scatter
+!! scalapack
+!! timab
+!! time_accu
+!! timein
+!! wrtout
+!!
+!!***

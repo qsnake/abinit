@@ -1,0 +1,36 @@
+!!****d* ABINIT/12_hide_mpi
+!! NAME
+!! 12_hide_mpi
+!!
+!! DESCRIPTION
+!! This directory contains small routines that are
+!! used to hide MPI calls in the ABINIT package.
+!! Outside MPI calls, They do not call routines in other ABINIT directories,
+!! hence these routines constitutes a stand-alone library.
+!! Some of these routines have two versions : one sequential, and
+!! one MPI-parallel.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! xallgather_mpi
+!! xallgatherv_mpi
+!! xalltoallv_mpi
+!! xcast_mpi
+!! xexch_mpi
+!! xgatherv_mpi
+!! xmax_mpi
+!! xmin_mpi
+!! xsum_master
+!! xsum_mpi
+!! xderiveread
+!! xderivereadval
+!! xderivewrite
+!! xderivewriteval
+!!
+!!***

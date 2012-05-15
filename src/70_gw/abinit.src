@@ -1,0 +1,68 @@
+# -*- Python -*-
+#
+# Copyright (C) 2005-2012 ABINIT Group (Yann Pouillon)
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the 70_gw library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "accumulate_chi0_q0.F90",
+ "accumulate_sfchi0_q0.F90",
+ "calc_sig_ppm_eet.F90",
+ "cchi0_eet.F90",
+ "calc_ffm.F90",
+ "calc_rpa_functional.F90",
+ "calc_sigc_cd.F90",
+ "calc_sigc_pole_cd.F90",
+ "calc_sig_ppm_comp.F90",
+ "calc_sigc_me.F90",
+ "calc_sigx_me.F90",
+ "calc_vhxc_me.F90",
+ "calc_wf_qp.F90",
+ "check_completeness.F90",
+ "cchi0.F90",
+ "cchi0q0.F90",
+ "cchi0q0_intraband.F90",
+ "check_completeness.F90",
+ "cohsex_me.F90",
+ "cutoff_m_elem.F90",
+ "debug_tools.F90",
+ "dotproductqrc.F90",
+ "gwcompleteness.F90",
+ "gw_tools.F90",
+ "my_calc_wfwfg.F90",
+ "mlwfovlp_qp.F90",
+ "m_dyson_solver.F90",
+ "m_fft_prof.F90",
+ "m_gwannier.F90",
+ "m_model_screening.F90",
+ "m_ppmodel.F90",
+ "m_qparticles.F90",
+ "m_screening.F90",
+ "m_screen.F90",
+ "m_sigma_results.F90",
+ "paw_qpscgw.F90",
+ "print_psps.F90",
+ "q0fit.F90",
+ "setup_screening.F90",
+ "setup_sigma.F90",
+ "sigma_interp.F90",
+ "symmetrize_afm_chi0.F90",
+ "spectral.F90",
+ "trashme.F90",
+ "wfk_read_ene.F90",
+ "write_deltaI.F90"
+ ]
+# IMPORTANT : please use the alphabetic order in the previous list. Do NOT add the new routine names at the end of the list.

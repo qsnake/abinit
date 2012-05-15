@@ -1,0 +1,20 @@
+!!****d* ABINIT/52_fft_mpi_noabirule
+!! NAME
+!! 52_fft_mpi_noabirule
+!!
+!! DESCRIPTION
+!! This subdirectory contains the source and object files related
+!! to new routines from the FFT package of Stefan Goedecker (2005 version), 
+!! These routines are written in F90, but do not follow the ABINIT
+!! coding rules (~abinit/doc/developers/rules_coding).
+!! 
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!!
+!!***

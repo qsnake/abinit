@@ -1,0 +1,44 @@
+!!****d* ABINIT/56_recipspace
+!! NAME
+!! 56_recipspace
+!!
+!! DESCRIPTION
+!! This directory contains level-3 routines used
+!! to treat define and treat quantities in the reciprocal
+!! space, like the set of k points, the set of plane waves,
+!! the definition of the FFT grid. 
+!! These are mostly utility routines, used in different parts
+!! of ABINIT, except the k point generator, 
+!! getkgrid.F90 and the tester of k point grids, testkgrid.F90 .
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! bound.F90
+!! get_full_kgrid.F90
+!! get_tetra.F90
+!! getcut.F90
+!! getkgrid.F90
+!! getkpgnorm.F90
+!! getmpw.F90
+!! getng.F90
+!! getph.F90
+!! initylmg.F90
+!! irrzg.F90
+!! kpgio.F90
+!! kpgsph.F90
+!! mkkin.F90
+!! setsym.F90
+!! smpbz.F90
+!! symg.F90
+!! symkchk.F90
+!! symkpt.F90
+!! symq3.F90
+!! testkgrid.F90
+!!
+!!***

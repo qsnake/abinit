@@ -1,0 +1,50 @@
+!!****d* ABINIT/13paw
+!! NAME
+!! 13paw
+!!
+!! DESCRIPTION
+!! This directory contains level-3 routines related to the
+!! Projector Augmented Wave methodology.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! clp.F90
+!! ctrap_gen.F90
+!! dbeta.F90
+!! gaunt.F90
+!! getsc.F90
+!! indgrid.F90
+!! initang.F90
+!! initylmr.F90
+!! makeeuler.F90
+!! nderiv_gen.F90
+!! nhatgrid.F90
+!! pawdenpot.F90
+!! pawdij.F90
+!! pawenergy.F90
+!! pawinit.F90
+!! pawmix.F90
+!! pawmkgrad.F90
+!! pawovlp.F90
+!! pawprt.F90
+!! pawrhoij1.F90
+!! pawrhoij2.F90
+!! pawxc.F90
+!! pawxcdenm.F90
+!! pawxcgrad.F90
+!! pawxcm.F90
+!! permutations.F90
+!! phim.F90
+!! realgaunt.F90
+!! setsymrhoij.F90
+!! symrhoij.F90
+!! transgrid.F90
+!! zerosym.F90
+!!
+!!***

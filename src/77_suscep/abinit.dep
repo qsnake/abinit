@@ -1,0 +1,27 @@
+#Dependencies (inside the directory) of the directory ./src/77_suscep
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_77_suscep.$(MODEXT) 
+
+acfd_dyson.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 
+
+acfd_intexact.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 
+
+suscep.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 
+
+suscep_dyn.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 
+
+suscep_kxc_dyn.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 
+
+suscep_stat.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 
+
+xcacfd.$(OBJEXT): interfaces_77_suscep.$(OBJEXT) 

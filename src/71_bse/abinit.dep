@@ -1,0 +1,37 @@
+#Dependencies (inside the directory) of the directory ./src/71_bse
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_71_bse.$(MODEXT) \
+	m_bse_io.$(MODEXT) \
+	m_shexc.$(MODEXT) 
+
+exc_build_block.$(OBJEXT): m_bse_io.$(OBJEXT) 
+
+exc_build_ham.$(OBJEXT): interfaces_71_bse.$(OBJEXT) 
+
+exc_diago.$(OBJEXT): m_bse_io.$(OBJEXT) 
+
+exc_diago_driver.$(OBJEXT): interfaces_71_bse.$(OBJEXT) 
+
+exc_interp_ham.$(OBJEXT): m_shexc.$(OBJEXT) 
+
+exc_iterative_diago.$(OBJEXT): interfaces_71_bse.$(OBJEXT) m_bse_io.$(OBJEXT) 
+
+exc_plot.$(OBJEXT): m_bse_io.$(OBJEXT) 
+
+exc_spectra.$(OBJEXT): interfaces_71_bse.$(OBJEXT) m_bse_io.$(OBJEXT) 
+
+haydock.$(OBJEXT): interfaces_71_bse.$(OBJEXT) m_bse_io.$(OBJEXT) 
+
+haydock_psherm.$(OBJEXT): interfaces_71_bse.$(OBJEXT) 
+
+m_shexc.$(OBJEXT): interfaces_71_bse.$(OBJEXT) 

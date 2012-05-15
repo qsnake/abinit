@@ -1,0 +1,30 @@
+#Dependencies (inside the directory) of the directory ./src/27_toolbox_oop
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_27_toolbox_oop.$(MODEXT) \
+	m_copy.$(MODEXT) \
+	m_errors.$(MODEXT) \
+	m_fstrings.$(MODEXT) \
+	m_geometry.$(MODEXT) \
+	m_io_tools.$(MODEXT) \
+	m_iterators.$(MODEXT) \
+	m_jolly_pointers.$(MODEXT) 
+
+m_errors.$(OBJEXT): interfaces_27_toolbox_oop.$(OBJEXT) m_fstrings.$(OBJEXT) m_io_tools.$(OBJEXT) 
+
+m_geometry.$(OBJEXT): m_errors.$(OBJEXT) 
+
+m_io_tools.$(OBJEXT): m_fstrings.$(OBJEXT) 
+
+m_iterators.$(OBJEXT): m_errors.$(OBJEXT) 
+
+m_jolly_pointers.$(OBJEXT): m_errors.$(OBJEXT) 

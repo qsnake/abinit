@@ -1,0 +1,23 @@
+#Dependencies (inside the directory) of the directory ./src/83_cut3d
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_83_cut3d.$(MODEXT) 
+
+lineint.$(OBJEXT): interfaces_83_cut3d.$(OBJEXT) 
+
+localorb_S.$(OBJEXT): interfaces_83_cut3d.$(OBJEXT) 
+
+planeint.$(OBJEXT): interfaces_83_cut3d.$(OBJEXT) 
+
+pointint.$(OBJEXT): interfaces_83_cut3d.$(OBJEXT) 
+
+volumeint.$(OBJEXT): interfaces_83_cut3d.$(OBJEXT) 

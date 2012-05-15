@@ -1,0 +1,43 @@
+#Dependencies (inside the directory) of the directory ./src/63_bader
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_63_bader.$(MODEXT) 
+
+addout.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+adini.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+aim_follow.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+cpdrv.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+critic.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+critics.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+drvaim.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+initaim.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+integrho.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+onestep.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+plint.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+rsurf.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+surf.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+vgh_rho.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 
+
+vnorm.$(OBJEXT): interfaces_63_bader.$(OBJEXT) 

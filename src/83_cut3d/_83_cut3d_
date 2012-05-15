@@ -1,0 +1,32 @@
+!!****d* ABINIT/83_cut3d
+!! NAME
+!! 83_cut3d
+!!
+!! DESCRIPTION
+!! This directory contains level-9 routines used
+!! in the main program cut3d .
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! hirsh.F90
+!! interpol3d.F90
+!! linedirectint.F90
+!! lineint.F90
+!! normalize.F90
+!! planeint.F90
+!! pointint.F90
+!! recip.F90
+!! reduce.F90
+!! rrho.F90
+!! rtau.F90
+!! vdot.F90
+!! volumeint.F90
+!! wffile.F90
+!!
+!!***

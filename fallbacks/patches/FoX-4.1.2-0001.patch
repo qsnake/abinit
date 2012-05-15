@@ -1,0 +1,15 @@
+diff -urN FoX-4.1.2.old/Makefile FoX-4.1.2.new/Makefile
+--- FoX-4.1.2.old/Makefile	2012-01-05 11:04:10.000000000 +0100
++++ FoX-4.1.2.new/Makefile	2012-01-11 11:43:52.000000000 +0100
+@@ -9,9 +9,9 @@
+ 	mkdir -p objs/lib objs/finclude
+ #
+ install: objsdir $(BUILD_TARGETS)
+-	$(MKDIR_P) $(install_prefix)/lib $(install_prefix)/finclude $(install_prefix)/bin
++	$(MKDIR_P) $(install_prefix)/lib $(install_prefix)/include $(install_prefix)/bin
+ 	$(INSTALL) objs/lib/* $(install_prefix)/lib
+-	$(INSTALL) -m 644 objs/finclude/* $(install_prefix)/finclude
++	$(INSTALL) -m 644 objs/finclude/* $(install_prefix)/include
+ 	$(INSTALL) FoX-config $(install_prefix)/bin
+ #
+ examples_build: $(BUILD_TARGETS)

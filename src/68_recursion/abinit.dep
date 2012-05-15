@@ -1,0 +1,37 @@
+#Dependencies (inside the directory) of the directory ./src/68_recursion
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_68_recursion.$(MODEXT) \
+	m_hidecudarec.$(MODEXT) \
+	m_pretty_rec.$(MODEXT) \
+	m_rec.$(MODEXT) \
+	m_rec_tools.$(MODEXT) 
+
+density_rec.$(OBJEXT): m_rec_tools.$(OBJEXT) 
+
+entropyrec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) 
+
+fermisolverec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) 
+
+first_rec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) m_hidecudarec.$(OBJEXT) m_rec.$(OBJEXT) m_rec_tools.$(OBJEXT) 
+
+gran_potrec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) 
+
+m_rec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) m_hidecudarec.$(OBJEXT) m_rec_tools.$(OBJEXT) 
+
+nlenergyrec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) m_rec_tools.$(OBJEXT) 
+
+recursion.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) m_rec_tools.$(OBJEXT) 
+
+recursion_nl.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) m_rec_tools.$(OBJEXT) 
+
+vtorhorec.$(OBJEXT): interfaces_68_recursion.$(OBJEXT) m_hidecudarec.$(OBJEXT) m_pretty_rec.$(OBJEXT) m_rec.$(OBJEXT) m_rec_tools.$(OBJEXT) 

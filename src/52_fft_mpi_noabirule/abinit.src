@@ -1,0 +1,57 @@
+# -*- Python -*-
+#
+# Copyright (C) 2005-2012 ABINIT Group (Yann Pouillon)
+#
+# This file is part of the ABINIT software package. For license information,
+# please see the COPYING file in the top-level directory of the ABINIT source
+# distribution.
+#
+
+#
+# Source files making up the fftnew library
+#
+
+# Source file attributes
+ABI_SRC_NIL = 0     # No attribute
+ABI_SRC_BLT = 1     # The file is built by a script
+ABI_SRC_DEP = 2     # The file depends on other files
+
+# Source files
+sources = [
+ "accrho.F90",
+ "addrho.F90",
+ "applypot.F90",
+ "back.F90",
+ "back_wf.F90",
+ "ctrig.F90",
+ "fftstp.F90",
+ "fill_cent.F90",
+ "fill.F90",
+ "forw.F90",
+ "forw_wf.F90",
+ "indirect_parallel_Fourier.F90",
+ "mpiswitch.F90",
+ "mpiswitch_cent.F90",
+ "multpot.F90",
+ "m_fftw3.F90",
+ "m_sgfft.F90",
+ "scramble.F90",
+ "sg_ctrig.F90",
+ "sg_fftx.F90",
+ "sg_ffty.F90",
+ "sg_fftz.F90",
+ "switch.F90",
+ "switch_cent.F90",
+ "switchreal.F90",
+ "switchreal_cent.F90",
+ "unfill.F90",
+ "unfill_cent.F90",
+ "unmpiswitch.F90",
+ "unmpiswitch_cent.F90",
+ "unscramble.F90",
+ "unswitch.F90",
+ "unswitch_cent.F90",
+ "unswitchreal.F90",
+ "unswitchreal_cent.F90"]
+# IMPORTANT : please use the alphabetic order in the previous list. Do NOT add the new routine names at the end of the list.
+# This is important to avoid numerous conflicts at merge time. Thank you very much. Xavier.

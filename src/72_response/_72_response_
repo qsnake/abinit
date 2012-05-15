@@ -1,0 +1,88 @@
+!!****d* ABINIT/72_response
+!! NAME
+!! 72_response
+!!
+!! DESCRIPTION
+!! This directory contains level-6 routines used
+!! to treat responses to perturbations within ABINIT,
+!! that are lower-level than the MPI-parallelized
+!! routines.
+!! (Should be described in more details, but might be
+!! further split)
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! asria9.F90
+!! blok8.F90
+!! cart29.F90
+!! cart39.F90
+!! cgwf3.F90
+!! chkph3.F90
+!! chneu9.F90
+!! d2kindstr2.F90
+!! d2sym3.F90
+!! d3output.F90
+!! d3sym.F90
+!! dyfnl3.F90
+!! dyfro3.F90
+!! dyout3.F90
+!! dyxc13.F90
+!! eig1fixed.F90
+!! eltfrhar3.F90
+!! eltfrkin3.F90
+!! eltfrloc3.F90
+!! eltfrnl3.F90
+!! eltfrxc3.F90
+!! eneres3.F90
+!! ewald3.F90
+!! ewald4.F90
+!! gath3.F90
+!! gaugetransfo.F90
+!! getshell.F90
+!! hartrestr.F90
+!! inprep8.F90
+!! insy3.F90
+!! ioddb8.F90
+!! kpg3.F90
+!! kpgstr.F90
+!! mkcor3.F90
+!! mkrho3.F90
+!! mkvxc3.F90
+!! mkvxcgga3.F90
+!! newfermie1.F90
+!! newvtr3.F90
+!! nlopt.F90
+!! nselt3.F90
+!! nstdy3.F90
+!! nstwf3.F90
+!! nstwf4.F90
+!! phfrq3.F90
+!! polcart.F90
+!! prtene3.F90
+!! prtph3.F90
+!! psddb8.F90
+!! q0dy3.F90
+!! resp3dte.F90
+!! rhofermi3.F90
+!! scfcv3.F90
+!! sydy3.F90
+!! sygra3.F90
+!! symdyma.F90
+!! symph3.F90
+!! syper3.F90
+!! sytens.F90
+!! vloca3.F90
+!! vlocalstr.F90
+!! vtorho3.F90
+!! vtowfk3.F90
+!! wfkfermi3.F90
+!! wings3.F90
+!! wrtloctens.F90
+!!
+!!***

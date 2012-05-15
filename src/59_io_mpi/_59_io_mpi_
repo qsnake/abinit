@@ -1,0 +1,39 @@
+!!****d* ABINIT/59_io_mpi
+!! NAME
+!! 59_io_mpi
+!!
+!! DESCRIPTION
+!! This directory contains routines that manage input/output
+!! and contain MPI calls.
+!! Some of these routines have two versions : one sequential, and
+!! one MPI-parallel.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! chkexi
+!! hdr_io
+!! hdr_io_netcdf
+!! hdr_skip
+!! outxfhist
+!! rwwf
+!! wffclose
+!! wffdelete
+!! wffkg
+!! wffoffset
+!! wffopen
+!! wffreaddatarec
+!! wffreadnpwrec
+!! wffreadskiprec
+!! wffwritedatarec
+!! wffwritedatarecint
+!! wffwritenpwrec
+!! wvl_rwwf
+!! hdr_comm
+!!
+!!***

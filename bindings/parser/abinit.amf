@@ -1,0 +1,12 @@
+install-data-local:
+	$(INSTALL) -d -m 755 $(DESTDIR)$(includedir)
+	$(INSTALL) -d -m 755 $(DESTDIR)$(prefix)/finclude
+	$(INSTALL) -d -m 755 $(DESTDIR)$(libdir)
+	$(INSTALL_DATA) -m 644 $(srcdir)/ab6.h $(DESTDIR)$(includedir)
+	$(INSTALL_DATA) -m 644 $(srcdir)/ab6_base.h $(DESTDIR)$(includedir)
+	$(INSTALL_DATA) -m 644 $(srcdir)/ab6_invars.h $(DESTDIR)$(includedir)
+	$(INSTALL_DATA) -m 644 $(srcdir)/ab6_symmetry.h $(DESTDIR)$(includedir)
+	$(INSTALL_DATA) -m 644 libabinis.a $(DESTDIR)$(libdir)
+
+EXTRA_DIST += dtset.pickle ab6_invars.h ab6_invars_c.h ab6_invars_py.h
+

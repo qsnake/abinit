@@ -1,0 +1,24 @@
+#Dependencies (inside the directory) of the directory ./src/62_occeig
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_62_occeig.$(MODEXT) \
+	m_ebands.$(MODEXT) 
+
+gaus_dos.$(OBJEXT): interfaces_62_occeig.$(OBJEXT) 
+
+getnel.$(OBJEXT): interfaces_62_occeig.$(OBJEXT) 
+
+m_ebands.$(OBJEXT): interfaces_62_occeig.$(OBJEXT) 
+
+newocc.$(OBJEXT): interfaces_62_occeig.$(OBJEXT) 
+
+tetrahedron.$(OBJEXT): interfaces_62_occeig.$(OBJEXT) 

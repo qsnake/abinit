@@ -1,0 +1,58 @@
+!!****d* ABINIT/13psp
+!! NAME
+!! 13psp
+!!
+!! DESCRIPTION
+!! This directory contains level-2 routines used
+!! to treat the input of pseudopotentials. The main entry point to
+!! this library is the routine pspini.F90 .
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! ctrap.F90
+!! der_int.F90
+!! getdim_nloc.F90
+!! gg1cc.F90
+!! gp1cc.F90
+!! gpp1cc.F90
+!! psp1cc.F90
+!! psp1in.F90
+!! psp1lo.F90
+!! psp1nl.F90
+!! psp2in.F90
+!! psp2lo.F90
+!! psp2nl.F90
+!! psp3in.F90
+!! psp3nl.F90
+!! psp4cc.F90
+!! psp5in.F90
+!! psp5lo.F90
+!! psp5nl.F90
+!! psp6cc.F90
+!! psp6cc_drh.F90
+!! psp6in.F90
+!! psp7in.F90
+!! psp7lo.F90
+!! psp7nl.F90
+!! psp8cc.F90
+!! psp8in.F90
+!! psp8lo.F90
+!! psp8nl.F90
+!! pspatm.F90
+!! pspcor.F90
+!! pspini.F90
+!! sbf8.F90
+!! sincos.F90
+!! radii_ps.F90
+!! vander.F90
+!! vhrtre.F90
+!! vlocal1.F90
+!! vlocal2.F90
+!!
+!!***

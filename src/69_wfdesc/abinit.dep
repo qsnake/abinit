@@ -1,0 +1,36 @@
+#Dependencies (inside the directory) of the directory ./src/69_wfdesc
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_69_wfdesc.$(MODEXT) \
+	m_cprj_bspline.$(MODEXT) \
+	m_io_kss.$(MODEXT) \
+	m_oscillators.$(MODEXT) \
+	m_shirley.$(MODEXT) \
+	m_wfs.$(MODEXT) 
+
+classify_bands.$(OBJEXT): interfaces_69_wfdesc.$(OBJEXT) m_wfs.$(OBJEXT) 
+
+interfaces_69_wfdesc.$(OBJEXT): m_wfs.$(OBJEXT) 
+
+m_io_kss.$(OBJEXT): m_wfs.$(OBJEXT) 
+
+m_oscillators.$(OBJEXT): m_wfs.$(OBJEXT) 
+
+m_shirley.$(OBJEXT): interfaces_69_wfdesc.$(OBJEXT) m_cprj_bspline.$(OBJEXT) m_wfs.$(OBJEXT) 
+
+outkss.$(OBJEXT): m_io_kss.$(OBJEXT) 
+
+wfd_mkrho.$(OBJEXT): m_wfs.$(OBJEXT) 
+
+wfd_pawrhoij.$(OBJEXT): m_wfs.$(OBJEXT) 
+
+wfd_vnlpsi.$(OBJEXT): m_wfs.$(OBJEXT) 

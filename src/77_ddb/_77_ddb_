@@ -1,0 +1,90 @@
+!!****d* ABINIT/77_ddb
+!! NAME
+!! 77_ddb
+!!
+!! DESCRIPTION
+!! This directory contains all remaining
+!! level-7 routines used
+!! within the main programs anaddb and mrgddb of ABINIT.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! alignph.F90
+!! asrif9.F90
+!! axial9.F90
+!! bigbx9.F90
+!! canat9.F90
+!! canct9.F90
+!! chki8.F90
+!! chkin9.F90
+!! chkr8.F90
+!! chkrp9.F90
+!! cmpar8.F90
+!! compare_interpol.F90
+!! complete_gkk.F90
+!! completeperts.F90
+!! defs_elphon.F90
+!! diel9.F90
+!! dielmore9.F90
+!! dist9.F90
+!! dtchi.F90
+!! dtech9.F90
+!! dymfz9.F90
+!! elast9.F90
+!! electrooptic.F90
+!! elphon.F90
+!! ewald9.F90
+!! ftgam.F90
+!! ftgkk.F90
+!! ftiaf9.F90
+!! fxgkkphase.F90
+!! gamma9.F90
+!! get_all_gkk2.F90
+!! get_all_gkq.F90
+!! get_fs_kpts.F90
+!! gtblk9.F90
+!! gtdyn9.F90
+!! hybrid9.F90
+!! ifclo9.F90
+!! init8.F90
+!! init9.F90
+!! inpphon.F90
+!! instr9.F90
+!! integrate_gamma.F90
+!! interpolate_gkk.F90
+!! interpolate_phfrq.F90
+!! invars9.F90
+!! mk_irredpert.F90
+!! mka2f.F90
+!! mkelph_linwid.F90
+!! mkfskgrid.F90
+!! mkfsqgrid.F90
+!! mkifc9.F90
+!! mkqptequiv.F90
+!! nanal9.F90
+!! normsq_gkq.F90
+!! order_fs_kpts.F90
+!! outlwf9.F90
+!! outvars9.F90
+!! piezo9.F90
+!! ramansus.F90
+!! rchkgsheader.F90
+!! rdddb9.F90
+!! read_gkk.F90
+!! relaxpol.F90
+!! rsiaf9.F90
+!! sortph.F90
+!! sym_gkk.F90
+!! symdm9.F90
+!! symgamma.F90
+!! test_ftgkk.F90
+!! thm9.F90
+!! wght9.F90
+!!
+!!***

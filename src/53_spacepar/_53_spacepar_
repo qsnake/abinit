@@ -1,0 +1,37 @@
+!!****d* ABINIT/53_spacepar
+!! NAME
+!! 53_spacepar
+!!
+!! DESCRIPTION
+!! This directory contains level-2 routines used
+!! to treat operations in reciprocal or real space that
+!! need to be parallelized in this space.
+!! These are mostly basic numerical routines, in the
+!! spirit of BLAS, but adapted to wavefunctions or
+!! density and potentials, in which one has to take
+!! into account, on one side, the nspinor, isrtwfk, nspden
+!! or cplex characteristics, and, on the other side,
+!! the specific spread of the components in G- or R- space.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! dotprod_g.F90
+!! dotprod_v.F90
+!! dotprod_vn.F90
+!! dotprodm_v.F90
+!! dotprodm_vn.F90
+!! matrixelmt_g.F90
+!! mean_fftr.F90
+!! meanvalue_g.F90
+!! overlap_g.F90
+!! sqnorm_g.F90
+!! sqnorm_v.F90
+!! sqnormm_v.F90
+!!
+!!***

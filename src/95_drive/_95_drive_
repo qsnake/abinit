@@ -1,0 +1,38 @@
+!!****d* ABINIT/95_drive
+!! NAME
+!! 95_drive
+!!
+!! DESCRIPTION
+!! This directory contains level-11 routines that
+!! are called by the main programs ABINIT and NEWSP,
+!! and drive the computation until the MPI-parallel
+!! level is reached.
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! brdmin.F90
+!! delocint.F90
+!! driver.F90
+!! gstate.F90
+!! handle_err_netcdf.F90
+!! invars1m.F90
+!! loop3dte.F90
+!! moldyn.F90
+!! move.F90
+!! nonlinear.F90
+!! scfcv.F90
+!! screening.F90
+!! sigma.F90
+!! testfi.F90
+!! timana.F90
+!! vtorhotf.F90
+!! write_header_moldynnetcdf.F90
+!! write_moldynvaluenetcdf.F90
+!!
+!!***

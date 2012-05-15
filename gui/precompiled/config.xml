@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tabbedpaneconf>
+  <configuration>
+    <hostlocation lacation="Remote (behind a gateway)" />
+    <needpbs checked="1" />
+    <remotelogin login="fabreu" />
+    <remotehost host="green.cism.ucl.ac.be" />
+    <remotepwd pwd="" />
+    <gatewaylogin login="fabreu" />
+    <gatewayhost host="hall.cism.ucl.ac.be" />
+    <gatewaypwd pwd="" />
+    <mySimulationspath path="./MySims" />
+    <psppath path="./PSP" />
+    <abinitpath path="/location/where/to/find/abinit/at/server/side" />
+    <abinitSequ checked="1" />
+    <abinitPara checked="0" />
+    <abinipproc numproc="2" />
+    <pbstime time="10" />
+    <pbsnodes nodes="1" />
+    <pbsram ram="500" />
+    <pbshdm hdm="200" />
+    <pbsemail email="youremail@provider.com" />
+    <openfile file="./t41.in" />
+    <psp psp="1" />
+    <psptable>
+      <entry i="0" symbol="Al" psppath="./PSP/LDA_GTH" pspfile="13al.pspgth" psptype="LDA_GTH" />
+    </psptable>
+  </configuration>
+  <inputfile />
+  <sshterminal>
+    <sshuserhost userhost="" />
+    <sshpwd pwd="" />
+  </sshterminal>
+  <sftpterminal>
+    <sftpuserhost userhost="" />
+    <sftppwd pwd="" />
+  </sftpterminal>
+</tabbedpaneconf>
+

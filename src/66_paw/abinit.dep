@@ -1,0 +1,74 @@
+#Dependencies (inside the directory) of the directory ./src/66_paw
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_66_paw.$(MODEXT) \
+	m_paw_commutator.$(MODEXT) \
+	m_paw_dmft.$(MODEXT) \
+	m_paw_pwij.$(MODEXT) \
+	m_paw_slater.$(MODEXT) \
+	m_paw_toolbox.$(MODEXT) 
+
+denfgr.$(OBJEXT): interfaces_66_paw.$(OBJEXT) m_paw_toolbox.$(OBJEXT) 
+
+fourier_interpol.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+interfaces_66_paw.$(OBJEXT): m_paw_dmft.$(OBJEXT) 
+
+m_paw_commutator.$(OBJEXT): interfaces_66_paw.$(OBJEXT) m_paw_toolbox.$(OBJEXT) 
+
+make_efg_onsite.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+nhatgrid.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+optics_paw.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+optics_paw_core.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+paw_mknewh0.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawalloc.$(OBJEXT): m_paw_toolbox.$(OBJEXT) 
+
+pawdenpot.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawdij.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawfrnhat.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawgrnl.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawinit.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawmkaewf.$(OBJEXT): interfaces_66_paw.$(OBJEXT) m_paw_toolbox.$(OBJEXT) 
+
+pawmknhat.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawmknhat_psipsi.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawmkrho.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawmkrhoij.$(OBJEXT): interfaces_66_paw.$(OBJEXT) m_paw_dmft.$(OBJEXT) 
+
+pawnabla_init.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawnstd2e.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawprt.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawuj_det.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawuj_red.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+pawuj_utils.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+read_atomden.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 
+
+symdij.$(OBJEXT): interfaces_66_paw.$(OBJEXT) 

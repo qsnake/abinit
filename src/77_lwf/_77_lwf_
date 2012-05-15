@@ -1,0 +1,31 @@
+!!****d* ABINIT/77_lwf
+!! NAME
+!! 77_lwf
+!!
+!! DESCRIPTION
+!! This directory contain routines used
+!! within the main program LWF (under development).
+!! Until now, only level-2 routines are actually used,
+!! but this might change in the future ...
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! bldlwf.F90
+!! chkilwf.F90
+!! invars7w.F90
+!! overlap.F90
+!! readeig.F90
+!! rwwan.F90
+!! secinit.F90
+!! shellin.F90
+!! wanvec.F90
+!! zmnbld.F90
+!!
+!!***
+

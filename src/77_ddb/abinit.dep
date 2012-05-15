@@ -1,0 +1,148 @@
+#Dependencies (inside the directory) of the directory ./src/77_ddb
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_elphon.$(MODEXT) \
+	interfaces_77_ddb.$(MODEXT) \
+	m_atprj.$(MODEXT) \
+	m_eph.$(MODEXT) \
+	m_gamma.$(MODEXT) \
+	m_ifc.$(MODEXT) \
+	m_io_gkk.$(MODEXT) \
+	m_phdos.$(MODEXT) \
+	m_phonon_supercell.$(MODEXT) \
+	m_primcell_ddb_info.$(MODEXT) \
+	m_prtscphon.$(MODEXT) \
+	m_sortph.$(MODEXT) 
+
+carttransf.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+cmpar8.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+complete_gamma.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+complete_gamma_tr.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+complete_gkk.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+completeperts.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+diel9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+eli_app_m_1d.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+eli_diag_m_1d.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+eli_lambda_1d.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+eli_m_iter_1d.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+eli_z_1d.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+eliashberg_1d.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+elphon.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) m_gamma.$(OBJEXT) m_phdos.$(OBJEXT) 
+
+ep_fs_weights.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+ep_setupqpt.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+freeze_displ_allmodes.$(OBJEXT): m_phonon_supercell.$(OBJEXT) 
+
+fxgkkphase.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+get_all_gkk2.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+get_all_gkq.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+get_all_gkr.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+get_veloc_tr.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+gtblk9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+gtdyn9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+hybrid9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+inpphon.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+integrate_gamma.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+integrate_gamma_alt.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+integrate_gamma_tr.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+interfaces_77_ddb.$(OBJEXT): defs_elphon.$(OBJEXT) m_ifc.$(OBJEXT) 
+
+interpolate_gkk.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+interpolate_phfrq.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+lin_interpq_gam.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+m_eph.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+m_gamma.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) m_io_gkk.$(OBJEXT) 
+
+m_phdos.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+mblktyp1.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+mblktyp5.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+mka2f.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+mka2fQgrid.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+mka2f_tr.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+mkfskgrid.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+mkifc9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) m_ifc.$(OBJEXT) 
+
+mkph_linwid.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+mkphbs.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) m_atprj.$(OBJEXT) m_prtscphon.$(OBJEXT) m_sortph.$(OBJEXT) 
+
+mkqptequiv.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+nmsq_gam.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+nmsq_gam_sumfs.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+nmsq_pure_gkk.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+nmsq_pure_gkk_sumfs.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+normsq_gkq.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+order_fs_kpts.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+outelph.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+rdddb9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+read_el_veloc.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+read_gkk.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) m_gamma.$(OBJEXT) m_io_gkk.$(OBJEXT) 
+
+refineblk.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) m_ifc.$(OBJEXT) 
+
+rsiaf9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 
+
+symgamma.$(OBJEXT): defs_elphon.$(OBJEXT) 
+
+test_ftgkk.$(OBJEXT): defs_elphon.$(OBJEXT) interfaces_77_ddb.$(OBJEXT) 
+
+thm9.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) m_sortph.$(OBJEXT) 
+
+thmeig.$(OBJEXT): interfaces_77_ddb.$(OBJEXT) 

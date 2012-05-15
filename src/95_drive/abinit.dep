@@ -1,0 +1,48 @@
+#Dependencies (inside the directory) of the directory ./src/95_drive
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_scfcvargs.$(MODEXT) \
+	interfaces_95_drive.$(MODEXT) 
+
+afterscfloop.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+driver.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+gstate.$(OBJEXT): defs_scfcvargs.$(OBJEXT) interfaces_95_drive.$(OBJEXT) 
+
+gstateimg.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+gw_driver.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+interfaces_95_drive.$(OBJEXT): defs_scfcvargs.$(OBJEXT) 
+
+mover.$(OBJEXT): defs_scfcvargs.$(OBJEXT) interfaces_95_drive.$(OBJEXT) 
+
+nonlinear.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+pawuj_drive.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+respfn.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+scfcv.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+scfcv_init2.$(OBJEXT): defs_scfcvargs.$(OBJEXT) 
+
+scfcv_new.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+scfcv_new2.$(OBJEXT): defs_scfcvargs.$(OBJEXT) interfaces_95_drive.$(OBJEXT) 
+
+scphon.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+scphon_interpolate_phonon_and_dos.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 
+
+scphon_new_frequencies.$(OBJEXT): interfaces_95_drive.$(OBJEXT) 

@@ -1,0 +1,35 @@
+#Dependencies (inside the directory) of the directory ./src/65_nonlocal
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	interfaces_65_nonlocal.$(MODEXT) \
+	m_commutator_vkbr.$(MODEXT) \
+	m_hamiltonian.$(MODEXT) 
+
+ctocprj.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+getcprj.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+m_commutator_vkbr.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+nonlop.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+nonlop_pl.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+nonlop_ylm.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+opernl2.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+opernl3.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+opernl4a.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 
+
+opernl4b.$(OBJEXT): interfaces_65_nonlocal.$(OBJEXT) 

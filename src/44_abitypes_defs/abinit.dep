@@ -1,0 +1,48 @@
+#Dependencies (inside the directory) of the directory ./src/44_abitypes_defs
+#
+#COPYRIGHT
+#Copyright (C) 2010-2011 ABINIT group
+#This file is distributed under the terms of the
+#GNU General Public License, see ~abinit/COPYING
+#or http://www.gnu.org/copyleft/gpl.txt .
+#
+#THIS FILE IS GENERATED AUTOMATICALLY BY abilint.
+#To do that: config/scripts/abilint --dependencies . .
+
+CLEANFILES += \
+	defs_abitypes.$(MODEXT) \
+	defs_interfaces.$(MODEXT) \
+	defs_rectypes.$(MODEXT) \
+	defs_scftypes.$(MODEXT) \
+	defs_xc.$(MODEXT) \
+	interfaces_44_abitypes_defs.$(MODEXT) \
+	m_efield.$(MODEXT) \
+	m_energies.$(MODEXT) \
+	m_results_gs.$(MODEXT) \
+	m_results_img.$(MODEXT) \
+	m_results_respfn.$(MODEXT) \
+	m_scf_history.$(MODEXT) 
+
+cprj_utils.$(OBJEXT): defs_abitypes.$(OBJEXT) 
+
+defs_interfaces.$(OBJEXT): defs_abitypes.$(OBJEXT) 
+
+defs_rectypes.$(OBJEXT): defs_abitypes.$(OBJEXT) 
+
+defs_scftypes.$(OBJEXT): defs_abitypes.$(OBJEXT) defs_rectypes.$(OBJEXT) m_efield.$(OBJEXT) m_results_gs.$(OBJEXT) m_scf_history.$(OBJEXT) 
+
+defs_xc.$(OBJEXT): defs_abitypes.$(OBJEXT) 
+
+interfaces_44_abitypes_defs.$(OBJEXT): defs_abitypes.$(OBJEXT) 
+
+m_efield.$(OBJEXT): interfaces_44_abitypes_defs.$(OBJEXT) 
+
+m_results_gs.$(OBJEXT): m_energies.$(OBJEXT) 
+
+m_results_img.$(OBJEXT): defs_abitypes.$(OBJEXT) m_energies.$(OBJEXT) m_results_gs.$(OBJEXT) 
+
+m_results_respfn.$(OBJEXT): defs_abitypes.$(OBJEXT) 
+
+m_scf_history.$(OBJEXT): defs_abitypes.$(OBJEXT) interfaces_44_abitypes_defs.$(OBJEXT) 
+
+rhoij_utils.$(OBJEXT): defs_abitypes.$(OBJEXT) interfaces_44_abitypes_defs.$(OBJEXT) 

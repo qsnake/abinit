@@ -1,0 +1,27 @@
+!!****d* ABINIT/32_contract
+!! NAME
+!! 32_contract
+!!
+!! DESCRIPTION
+!! This directory contains small utility routines that are
+!! used in different places in the ABINIT package.
+!! They implement the "design-by-contract" software engineering technique:
+!! placed at the beginning of calling routines, they allow to check
+!! the validity of provided arguments ; still the production version
+!! is preprocessed such as to remove them, in order to obtain
+!! the original speed.		
+!!
+!! COPYRIGHT
+!! Copyright (C) 1998-2012 ABINIT group (TD)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! CHILDREN
+!! contract_dp_ge_val.F90
+!! contract_int_ge_val.F90
+!! contract_int_le_val.F90
+!! contract_int_list.F90
+!!
+!!***
