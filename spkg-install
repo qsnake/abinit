@@ -21,6 +21,7 @@ mkdir -p tests/Nightly
 touch tests/Nightly/Makefile.in
 
 unset RM
+export MAKEFLAGS=
 
 # Install ABINIT
 ./configure --prefix="$SPKG_LOCAL" --with-dft-flavor="none" --with-trio-flavor="none"
