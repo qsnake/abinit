@@ -23,7 +23,17 @@ touch tests/Nightly/Makefile.in
 unset RM
 export MAKEFLAGS=
 
-# Install ABINIT
 ./configure --prefix="$SPKG_LOCAL" --with-dft-flavor="none" --with-trio-flavor="none"
+
+cat > doc/Makefile <<EOF
+all:
+install:
+EOF
+
+cat > tests/Makefile <<EOF
+all:
+install:
+EOF
+
 make
 make install
