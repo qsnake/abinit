@@ -5,13 +5,13 @@ version = '1.3'
 # last modified : november 16 2010
 # written by Benjamin Tardif
 # benjamin.tardif@umontreal.ca
-# Modified by Paul Boulanger 
+# Modified by Paul Boulanger
 # 1.3 : Converted to numpy
 #     : corrected a bug related to termination of the segments (line 114)
 #     : defined a second angletol to distinguish between specialkpt detection and segment construction
 #===================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #IMPORTS
 import os
@@ -20,12 +20,12 @@ import time
 from numpy import *
 #from Numeric import *
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #VARIABLES
 class VariableContainer:pass
-
+ 
 #default variables
 default = VariableContainer()
 default.setupfilename = '.%s_setup' %program[:-3]
@@ -38,12 +38,12 @@ default.bandlinewidth = 1
 default.fermilinewidth = 1
 default.separatorlinewidth = 1
 default.emptyspacewidth = 10
-
+ 
 #control variables
 ctrl = VariableContainer()
 ctrl.arglist = sys.argv[1:]              # list of strings containing all the input arguments in the command line
 # list of valid keywords which can be used in the command line
-ctrl.validkeywords = ['-setautolaunch','-setenergyshift','-setlinecolor','-setlinewidth','-setspacewidth','-setup','-setdefault','-debug'] 
+ctrl.validkeywords = ['-setautolaunch','-setenergyshift','-setlinecolor','-setlinewidth','-setspacewidth','-setup','-setdefault','-debug']
 ctrl.debugmode = False                   # True if debug mode is activated (by adding keyword "-debug" in the command line)
 ctrl.launchcommand = str()            # string containing the xmgrace launch command
 ctrl.autolaunch = str()               # 'yes'or 'no', indicating if xmgrace will be automatically launched each time a .agr file is created
@@ -54,9 +54,9 @@ ctrl.bandlinewidth = int()
 ctrl.fermilinewidth = int()
 ctrl.separatorlinewidth = int()
 ctrl.emptyspacewidth = int()
-
-
-# dictionary maping color name with color number in xmgrace 
+ 
+ 
+# dictionary maping color name with color number in xmgrace
 ctrl.xmgracecolor = {
 'white'    : 0,
 'black'    : 1,
@@ -74,20 +74,20 @@ ctrl.xmgracecolor = {
 'maroon'   :13,
 'turquoise':14,
 'green4'   :15}
-
+ 
 ctrl.filename = str()                 # name of the file entered (*.out or *.dbs)
 ctrl.filetype = str()                 # 'out' or 'dbs' according to the type of the file entered
 ctrl.filedata = list()                # list of strings each containing one line of the file entered
-
+ 
 ctrl.dbsfilename = str()              # name of the file produced (*.dbs)
 ctrl.agrfilename = str()              # name of the file produced (*.agr)
-
+ 
 ctrl.angletol = 1                # maximum angle between 2 k-points under which they will be considered being in the same direction
 ctrl.angletol2 = 0.1
 ctrl.bandstructurescheme = str() # scheme of the type '{lA}-{lB}-{lC}' corresponding to the band structure to be plotted
                                  # each {} corresponds to the name given to a special k-point
                                  # {} 1st character : 'l' for 'letter' or 's' for 'symbol'
-                                 # {} 2nd character : a letter which combined with the 1st character will give a caption associated with this special k-point 
+                                 # {} 2nd character : a letter which combined with the 1st character will give a caption associated with this special k-point
                                  # '-' between {} indicates that a band structure must be plotted beteen the 2 corresponding k-points
                                  # ' ' (empty space) between {} indicates that an empty space must be inserted in the band structure
 ctrl.dicospecialkpt = dict()     # dictionary mapping , keys=[vectors], values={lx}
@@ -96,8 +96,8 @@ ctrl.segmentcaptionlist = list() # list of lists of string, each list having the
                                  # ['empty space'] for a empty space in the band structure
 ctrl.spacepercent = 10             # total percentage (in % units) of the graph to be occupied by empty spaces, if any
 ctrl.segmentcartlength = array([]) # array containing the cartesian length (in bohrs) of each segment of the band structure
-ctrl.segmentrellength = array([])  # array containing the relative lenght (dimensionless) of each segment of the band structure
-
+ctrl.segmentrellength = array([])  # array containing the relative length (dimensionless) of each segment of the band structure
+ 
 ctrl.dicoxkpt = {}        #dictionary linking x  to kpt (array)
 ctrl.captiontick = list()
 ctrl.X = array([])
@@ -105,16 +105,16 @@ ctrl.Y = list()           # list of array(nband,Float)
 ctrl.nvalenceband = int()
 ctrl.bandgap = float()
 ctrl.hartree_to_eV = float(27.2113845) #eV/hartree
-
+ 
 ctrl.ndataset = int() # number of datasets found in the .out file
 ctrl.datasetlocation = list() # list containing the starting and ending line index of each dataset
-
+ 
 ctrl.useddataset = list() # list containing the number of used dataset
 ctrl.databasekey = list() # list of list containing the informations describing the calculation parameters used to generate the k-point database
 ctrl.alphabet={
      1:'A', 2:'B', 3:'C', 4:'D', 5:'E', 6:'F', 7:'G', 8:'H', 9:'I',10:'J',11:'K',12:'L',13:'M',
     14:'N',15:'O',16:'P',17:'Q',18:'R',19:'S',20:'T',21:'U',22:'V',23:'W',24:'X',25:'Y',26:'Z'}
-
+ 
 #data variables
 data = VariableContainer()
 data.nband = int()
@@ -122,16 +122,16 @@ data.kpt = list() # list of array(3,Float)
 data.energy = list() # list of array(data.nband,Float)
 data.specialkpt = list() # list of array(3,Float)
 data.G = list() # list of array(3,Float) reciprocal vectors
-data.fermienergy = float() #fermi energy, in eV 
+data.fermienergy = float() #fermi energy, in eV
 data.typat = list() # list containing the type of each atom
 data.units = str() # 'eV' or 'hartree'
-
+ 
 #graph variables
 graph = VariableContainer()
 graph.title = str() # title of the graph
 graph.worldymin = float()
 graph.worldymax = float()
-
+ 
 #feedback variables
 feedback = VariableContainer()
 feedback.feedback = False
@@ -139,11 +139,11 @@ feedback.filename = '.%s_feedback' %program[:-3]
 feedback.ntimeused = int()
 feedback.email = 'benjamin.tardif@umontreal.ca'
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #METHODS : general
-
+ 
 def header(program,version):
     # type(program) = string
     # type(version) = string
@@ -152,7 +152,7 @@ def header(program,version):
     line = L*'='
     header = '\n%s\n %s version %s\n%s' %(line,program,version,line)
     return header
-
+ 
 def detectfile(filename,path='.'):
     # type(filename) = string
     # type(path) = string
@@ -161,7 +161,7 @@ def detectfile(filename,path='.'):
         return True
     else:
         return False
-
+ 
 def floatable(x):
     # type(x) = string, int or float
     # returns True if given x can be converted to a float
@@ -171,11 +171,11 @@ def floatable(x):
     except:
         return False
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #METHODS : list manipulation
-
+ 
 def clean(list):
     # type(list) = list of strings (usually obtained with the ".readlines()" method)
     # removes "\n" and "\r" and empty lines from given list
@@ -185,7 +185,7 @@ def clean(list):
         list[L-1-i] = list[L-1-i].replace('\r','')
         if list[L-1-i].split() == []:
             list.pop(L-1-i)
-
+ 
 def clean2(list):
     # type(list) = list of strings (usually obtained with the ".readlines()" method)
     # removes "\n" and "\r" from given list and replaces empty lines by "#"
@@ -195,7 +195,7 @@ def clean2(list):
         list[L-1-i] = list[L-1-i].replace('\r','')
         if list[L-1-i].split() == []:
             list[L-1-i] = "#"
-
+ 
 def rmrepetitions(list,pairedlist=None):
     # type(list) = any list whith all elements of the same length
     # removes repeated entries in the list, keeping only the first occurence
@@ -214,7 +214,7 @@ def rmrepetitions(list,pairedlist=None):
                 j-=1
             j+=1
         i+=1
-
+ 
 def rmsuccessiverepetitions(list,pairedlist=None):
     # type(list) = any list whith all elements of the same length
     # removes repeated successives entries in the list, keeping only the first occurence.
@@ -232,8 +232,8 @@ def rmsuccessiverepetitions(list,pairedlist=None):
             i-=1
         i+=1
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #METHODS : vector operations
 def norm(vector):
@@ -244,7 +244,7 @@ def norm(vector):
     z = vector[2]
     norm = (x**2+y**2+z**2)**0.5
     return norm
-
+ 
 def angle(vector1,vector2):
     # type(vector1) = array(3,Float)
     # type(vector2) = array(3,Float)
@@ -254,7 +254,7 @@ def angle(vector1,vector2):
     if arg < -1:arg=-1
     theta = (arccos(arg))/pi*180
     return theta
-
+ 
 def kpt_red_to_cart(kptred,primvectors):
     # type(kptred) = array(3,Float) representing the reduced coordinates of a k-point
     # type(primvectors) = a list of 3 array(3,Float) each representing a primitive vector in cartesian coordinates
@@ -262,56 +262,56 @@ def kpt_red_to_cart(kptred,primvectors):
     kptcart = kptred[0]*primvectors[0] + kptred[1]*primvectors[1] + kptred[2]*primvectors[2]
     return kptcart
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #METHODS : setup system
-
+ 
 def writesetupfile(setupfilename=default.setupfilename,path=sys.path[0],\
           launchcommand=default.launchcommand,autolaunch=default.autolaunch,\
           energyshift=default.energyshift,\
           valbandcolor=default.valbandcolor,conbandcolor=default.conbandcolor,\
           bandlinewidth=default.bandlinewidth,fermilinewidth=default.fermilinewidth,separatorlinewidth=default.separatorlinewidth,\
           emptyspacewidth=default.emptyspacewidth):
-
+ 
     writer = open(sys.path[0]+'/'+setupfilename,'w')
-
+ 
     writer.write('----------------------------------------------------------------------------')
     writer.write('\n this file is used by the program %s (version %s)' %(program,version))
     writer.write('\n (this file is not essential and can be deleted if needed)')
     writer.write('\n----------------------------------------------------------------------------')
-
+ 
     writer.write('\n\n============================================================================')
     writer.write('\n-setautolaunch')
     writer.write('\n\nXMGRACE LAUNCH COMMAND:\n%s' %launchcommand)
     writer.write('\n\nXMGRACE AUTOLAUNCH:\n%s' %autolaunch)
     writer.write('\n============================================================================')
-
+ 
     writer.write('\n\n============================================================================')
     writer.write('\n-setenergyshift')
     writer.write('\n\nSHIFT FERMI ENERGY TO ZERO:\n%s' %energyshift)
     writer.write('\n============================================================================')
-
+ 
     writer.write('\n\n============================================================================')
     writer.write('\n-setlinecolor')
     writer.write('\n\nVALENCE BANDS COLOR:\n%s' %valbandcolor)
     writer.write('\n\nCONDUCTION BANDS COLOR:\n%s' %conbandcolor)
     writer.write('\n============================================================================')
-
+ 
     writer.write('\n\n============================================================================')
     writer.write('\n-setlinewidth')
     writer.write('\n\nBAND LINES WIDTH:\n%s' %bandlinewidth)
     writer.write('\n\nFERMI ENERGY LINE WIDTH:\n%s' %fermilinewidth)
     writer.write('\n\nSEPARATOR LINES WIDTH:\n%s' %separatorlinewidth)
     writer.write('\n============================================================================')
-
+ 
     writer.write('\n\n============================================================================')
     writer.write('\n-setspacewidth')
     writer.write('\n\nEMPTY SPACE(S) WIDTH PERCENTAGE:\n%s' %emptyspacewidth)
     writer.write('\n============================================================================')
-
+ 
     writer.close()
-
+ 
 def setupfilecompatibility(oldsetupfile,newsetupfile):
     reader = open(sys.path[0]+'/'+default.setupfilename,'r')
     setup1 = reader.readlines()
@@ -328,7 +328,7 @@ def setupfilecompatibility(oldsetupfile,newsetupfile):
         return True
     else:
         return False
-        
+       
 def getsettings():
     # --> ctrl.launchcommand,ctrl.autolaunch,ctrl.energyshift,ctrl.valbandcolor,ctrl.conbandcolor,ctrl.bandlinewidth,ctrl.fermilinewidth,ctrl.emptyspacewidth
     reader = open(sys.path[0]+'/'+default.setupfilename,'r')
@@ -355,11 +355,11 @@ def getsettings():
         elif setupfile[i] == 'EMPTY SPACE(S) WIDTH PERCENTAGE:':
             ctrl.emptyspacewidth = setupfile[i+1]
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #METHODS : feedback system
-
+ 
 def feedbackbugged(jobtype='?'):
     if detectfile(feedback.filename,sys.path[0]) == False:
         #feedback file does not exists, create a default one
@@ -384,7 +384,7 @@ def feedbackbugged(jobtype='?'):
             filedata.pop(-1)
             writer.writelines(filedata)
             writer.write('%s\t%s\t%s\t%s\t%s' %(feedback.ntimeused+1,time.ctime(),version,jobtype,'BUGGED'))            
-
+ 
 def feedbackcrashed(jobtype,reason):
     reader = open(sys.path[0]+'/'+feedback.filename,'r')
     filedata = reader.readlines()
@@ -398,7 +398,7 @@ def feedbackcrashed(jobtype,reason):
         os.system('mail -s "%s feedback #%s" %s < %s' %(program,feedback.ntimeused+1,feedback.email,sys.path[0]+'/'+feedback.filename))
     except:
         pass
-
+ 
 def feedbackcompleted(jobtype):
     reader = open(sys.path[0]+'/'+feedback.filename,'r')
     filedata = reader.readlines()
@@ -413,16 +413,16 @@ def feedbackcompleted(jobtype):
     except:
         pass
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #MAIN
 print header(program,version)
 if feedback.feedback==True:feedbackbugged()
-
+ 
 #=====================================================================================================================================================================
 #SETUP FILE
-
+ 
 if detectfile(default.setupfilename,sys.path[0]) == False:
     #setup file not found, create a default one
     writesetupfile()
@@ -450,11 +450,11 @@ else:
             writesetupfile()
         os.system('rm -f %s/%s' %(sys.path[0],default.setupfilename+'2'))
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #COMMAND LINE
-
+ 
 #abort if a keyword is not valid
 for arg in ctrl.arglist:
     if arg[0] == '-':
@@ -469,14 +469,14 @@ for arg in ctrl.arglist:
             print '\nvalid keywords are :\n%s\n' %validkeywords
             if feedback.feedback==True:feedbackcrashed('?','invalid keyword')
             sys.exit()
-
+ 
 #abort if a keyword is repeated
 for keyword in ctrl.validkeywords:
     if ctrl.arglist.count(keyword) > 1:
         print '\n- ERROR -\nkeyword %s is repeated %s times\n' %(keyword,ctrl.arglist.count(keyword))
         if feedback.feedback==True:feedbackcrashed('?','repeated keyword')
         sys.exit()
-
+ 
 #get keywords
 setautolaunch = False
 setenergyshift = False
@@ -485,27 +485,27 @@ setlinewidth = False
 setspacewidth = False
 setup= False
 setdefault = False
-
+ 
 if '-setautolaunch' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setautolaunch'))
     setautolaunch = True
-
+ 
 if '-setenergyshift' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setenergyshift'))
     setenergyshift = True
-
+ 
 if '-setlinecolor' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setlinecolor'))
     setlinecolor = True
-
+ 
 if '-setlinewidth' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setlinewidth'))
     setlinewidth = True
-
+ 
 if '-setspacewidth' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setspacewidth'))
     setspacewidth = True
-
+ 
 if '-setup' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setup'))
     setautolaunch = True
@@ -513,17 +513,17 @@ if '-setup' in ctrl.arglist:
     setlinecolor = True
     setlinewidth = True
     setspacewidth = True
-
+ 
 if '-setdefault' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-setdefault'))
     setdefault = True
-
+ 
 if '-debug' in ctrl.arglist:
     ctrl.arglist.pop(ctrl.arglist.index('-debug'))
     ctrl.debugmode = True
-
+ 
 #(put additionnal keywords here)
-
+ 
 #SETUP MODE
 if setdefault==True:
     #create a default setup file
@@ -534,12 +534,12 @@ if setdefault==True:
     print '\n--> leaving SETUP MODE\n'
     if feedback.feedback == True:feedbackcompleted('SETUP')
     sys.exit()
-
+ 
 getsettings()
 if setautolaunch+setenergyshift+setlinecolor+setlinewidth+setspacewidth+setup!=0:
     print '\n--> starting SETUP MODE'
     if feedback.feedback==True:feedbackbugged('SETUP')
-
+ 
     if setautolaunch==True:
         #change launchcommand --> ctrl.launchcommand
         print '\ncurrent xmgrace launch command is :\n%s\n' %ctrl.launchcommand
@@ -548,18 +548,18 @@ if setautolaunch+setenergyshift+setlinecolor+setlinewidth+setspacewidth+setup!=0
             answer = raw_input('do you wish to change it (yes ; no) ? ')
         if answer == 'yes':
             ctrl.launchcommand = raw_input('\nenter the new xmgrace launch command :\n')
-
+ 
         #change autolaunch --> ctrl.autolaunch
         ctrl.autolaunch = raw_input('\nautomatically launch xmgrace each time a .agr file is created (yes ; no) ? ')
         while ctrl.autolaunch not in ['yes','no']:
             ctrl.autolaunch = raw_input('automatically launch xmgrace each time a .agr file is created (yes ; no) ? ')
-
+ 
     if setenergyshift==True:
         #change energy shift --> ctrl.energyshift
         ctrl.energyshift = raw_input('\nshift energy eigeivalues to bring the fermi energy to zero (yes ; no) ? ')
         while ctrl.energyshift not in ['yes','no']:
             ctrl.energyshift = raw_input('shift energy eigeivalues to bring the fermi energy to zero (yes ; no) ? ')
-
+ 
     if setlinecolor==True:
         #change valence bands color --> ctrl.valbandcolor
         ctrl.valbandcolor = raw_input('\nChoose the color of the valence bands : ')
@@ -570,7 +570,7 @@ if setautolaunch+setenergyshift+setlinecolor+setlinewidth+setspacewidth+setup!=0
             colors = colors[:-2]
             print '\n- invalid entry -\npossible answers are :\n%s' %colors
             ctrl.valbandcolor = raw_input('\nChoose the color of the valence bands : ')
-
+ 
         #change conduction bands color --> ctrl.conbandcolor
         ctrl.conbandcolor = raw_input('\nChoose the color of the conduction bands : ')
         while ctrl.conbandcolor not in ctrl.xmgracecolor.keys():
@@ -580,29 +580,29 @@ if setautolaunch+setenergyshift+setlinecolor+setlinewidth+setspacewidth+setup!=0
             colors = colors[:-2]
             print '\n- invalid entry -\npossible answers are :\n%s' %colors
             ctrl.conbandcolor = raw_input('\nChoose the color of the conduction bands : ')
-
+ 
     if setlinewidth==True:
         #change band lines width --> ctrl.bandlinewidth
         ctrl.bandlinewidth = raw_input('\nChoose the width of the band lines : ')
         while floatable(ctrl.bandlinewidth) == False:
             ctrl.bandlinewidth = raw_input('Choose the width of the band lines : ')
-
+ 
         #change fermi energy line width --> ctrl.fermilinewidth
         ctrl.fermilinewidth = raw_input('\nChoose the width of the fermi energy line : ')
         while floatable(ctrl.fermilinewidth) == False:
             ctrl.fermilinewidth = raw_input('Choose the width of the fermi energy line : ')
-
+ 
         #change separator lines width --> ctrl.separatorlinewidth
         ctrl.separatorlinewidth = raw_input('\nChoose the width of the separator lines : ')
         while floatable(ctrl.separatorlinewidth) == False:
             ctrl.separatorlinewidth = raw_input('Choose the width of the separator lines : ')
-
+ 
     if setspacewidth==True:
         #change empty space(s) width --> ctrl.emptyspacewidth
         ctrl.emptyspacewidth = raw_input('\nChoose the total width (in percentage) of the empty space(s) on the graph, if any : ')
         while floatable(ctrl.emptyspacewidth) == False:
             ctrl.emptyspacewidth = raw_input('Choose the total width (in percentage) of the empty space(s) on the graph, if any : ')
-
+ 
     #overwrite setup file
     writesetupfile(setupfilename=default.setupfilename,path=sys.path[0],\
                    launchcommand=ctrl.launchcommand,autolaunch=ctrl.autolaunch,\
@@ -610,11 +610,11 @@ if setautolaunch+setenergyshift+setlinecolor+setlinewidth+setspacewidth+setup!=0
                    valbandcolor=ctrl.valbandcolor,conbandcolor=ctrl.conbandcolor,\
                    bandlinewidth=ctrl.bandlinewidth,fermilinewidth=ctrl.fermilinewidth,separatorlinewidth=ctrl.separatorlinewidth,\
                    emptyspacewidth=ctrl.emptyspacewidth)
-
+ 
     print '\n--> leaving SETUP MODE\n'
     if feedback.feedback==True:feedbackcompleted('SETUP')
     sys.exit()
-
+ 
 #get the filename --> ctrl.filename
 if len(ctrl.arglist) == 0:
     #user entered no filename in the command line
@@ -627,7 +627,7 @@ elif len(ctrl.arglist) > 1:
     print '\n- ERROR -\ntoo many arguments entered in the command line\n'
     if feedback.feedback==True:feedbackcrashed('?','too many arguments entered')
     sys.exit()
-
+ 
 #compute file type --> ctrl.filetype
 #abort if the file type is not valid
 if ctrl.filename.split('.')[-1][:3] == 'out':
@@ -638,22 +638,22 @@ else:
     print '\n- ERROR -\ninvalid file type (must be .out or .dbs)\n'
     if feedback.feedback==True:feedbackcrashed('?','invalid filetype')
     sys.exit()
-
+ 
 #abort if the file does not exists
 if detectfile(ctrl.filename,'.') == False:
     print '\n- ERROR -\n"%s" file not found\n' %ctrl.filename
     if feedback.feedback==True:feedbackcrashed('?','file not found')
     sys.exit()
-
+ 
 #activate debugmode, if needed
 if ctrl.debugmode==True:
     print '\n--> DEBUG MODE'
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #READ THE FILE
-
+ 
 #read file and acquire data --> ctrl.filedata
 if ctrl.debugmode==True:print '\n--> file "%s" will be treated as a < %s > file' %(ctrl.filename,ctrl.filetype)
 reader = open(ctrl.filename,"r")
@@ -662,14 +662,14 @@ reader.close()
 if ctrl.debugmode==True:print '\n--> file read successfully\n    %s line(s) read' %len(ctrl.filedata)
 clean2(ctrl.filedata)
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #EXTRACT DATA FROM THE FILE
-
+ 
 if ctrl.filetype == 'out':
     if feedback.feedback==True:feedbackbugged('OUT')
-
+ 
     #warning if the calculation is not completed
     calculationcompleted = False
     for line in ctrl.filedata:
@@ -677,7 +677,7 @@ if ctrl.filetype == 'out':
             calculationcompleted = True
     if calculationcompleted == False:
         print '\n- WARNING -\ncalculation not completed'
-
+ 
     #compute number of datasets --> ctrl.ndataset
     #compute first and last line of each dataset --> ctrl.datasetlocation
     for i in range(len(ctrl.filedata)):
@@ -692,7 +692,7 @@ if ctrl.filetype == 'out':
         print '\n--> dataset locations computed'
         for line in ctrl.datasetlocation:
             print '    %s' %line
-
+ 
     #compute list of datasets to use --> ctrl.useddataset
     validanswer = False
     allowedchars = ['-',',','0','1','2','3','4','5','6','7','8','9']
@@ -700,7 +700,7 @@ if ctrl.filetype == 'out':
     if ctrl.datasetlocation[-1][-1] == 'not found':
         print 'the last dataset is not completed and will be ignored'
         ctrl.ndataset -= 1
-
+ 
     if ctrl.ndataset == 0:
         print '\n- ERROR -\nno completed dataset available\n'
         if feedback.feedback==True:feedbackcrashed('OUT','no completed dataset')
@@ -710,16 +710,16 @@ if ctrl.filetype == 'out':
     elif ctrl.ndataset > 1:
         while validanswer == False:
             answer = raw_input('\nWhich dataset(s) do you want to use (1 to %s) ? ' %ctrl.ndataset)
-
+ 
             ctrl.useddataset = list()
             validanswer = True
-            
+           
             #removes empty spaces from answer
             answersplit = answer.split()
             answer = str()
             for splitted in answersplit:
                 answer+=splitted
-
+ 
             #compute ctrl.useddataset
             try:
                 S = answer.split(',')
@@ -734,21 +734,21 @@ if ctrl.filetype == 'out':
                 ctrl.useddataset = sort(ctrl.useddataset)
             except:
                 validanswer = False
-
+ 
             #verify validity
             for number in ctrl.useddataset:
                 if number < 1 or number > ctrl.ndataset:
                     validanswer = False
-
+ 
             #show format instructions to user if invalid entry
             if validanswer == False:
                     print '\n- invalid entry -'
                     print 'use commas to separate different datasets'
                     print 'you can use minus signs to specify a group of successive datasets'
                     print 'for example, if you want to use the datasets 1, 3, 4, 5, 6 and 8, type : 1,3-6,8'
-
+ 
     if ctrl.debugmode==True:print '\n--> list of used datasets computed\n    %s' %ctrl.useddataset
-
+ 
     #get type of each atom --> data.typat
     #(assuming only one occurence of "typat" is present in the .out file)
     try:
@@ -758,20 +758,20 @@ if ctrl.filetype == 'out':
             if flag_typat==False and ctrl.filedata[i].split()[0] == 'typat':
                 flag_typat = True
                 k = i
-
+ 
         data.typat = ctrl.filedata[k].split()[1:]
         while ctrl.filedata[k+1].split()[0].isdigit()==True:
             k+=1
             for j in range(len(ctrl.filedata[k].split())):
                 data.typat.append(ctrl.filedata[k].split()[j])
-
+ 
         for i in range(len(data.typat)):
             data.typat[i] = int(data.typat[i])
     except:
         data.typat = '?'
-
+ 
     if ctrl.debugmode==True:print '\n--> typat found\n    %s' %data.typat
-
+ 
     #compute number of valence bands --> ctrl.nvalenceband
     #(assuming only one occurence of "- pspini" is present for each atom type)
     try:
@@ -779,10 +779,10 @@ if ctrl.filetype == 'out':
         for i in range(len(ctrl.filedata)):
             if ctrl.filedata[i][:9] == '- pspini:':
                 nion.append(float(ctrl.filedata[i+3].split()[2]))
-
+ 
         for i in range(len(data.typat)):
             ctrl.nvalenceband += int(nion[data.typat[i]-1])
-
+ 
         ctrl.nvalenceband = ctrl.nvalenceband/2.0
         if ctrl.nvalenceband%1 == 0:
             # ctrl.nvalenceband is an integer
@@ -792,9 +792,9 @@ if ctrl.filetype == 'out':
             ctrl.nvalenceband = int(ctrl.nvalenceband) + 1
     except:
         ctrl.nvalenceband = '?'
-
+ 
     if ctrl.debugmode==True:print '\n--> number of valence bands computed\n    %s' %ctrl.nvalenceband
-
+ 
     #get fermi energy --> data.fermienergy
     #(assuming only one occurence of "Fermi energy" is present in the .out file)
     try:
@@ -803,92 +803,100 @@ if ctrl.filetype == 'out':
                 data.fermienergy = float(ctrl.filedata[i].split()[-5])*hartree_to_eV
     except:
         pass
-
+ 
     if data.fermienergy == float(0):
         data.fermienergy = 'automatic'
-        
+       
     if ctrl.debugmode==True:print '\n--> fermi energy found\n    %s' %data.fermienergy
-
+ 
 #------------------------------
-
+ 
     #compute k-points and energy eigenvalues for each dataset
     starter = ctrl.filedata[:ctrl.datasetlocation[0][2]-1]
     for d in range(len(ctrl.useddataset)):
         n = ctrl.useddataset[d] #number of the dataset
         dataset = ctrl.filedata[ctrl.datasetlocation[n-1][2]-1:ctrl.datasetlocation[n-1][4]]
-
+ 
         #compute the dataset key --> datasetkey
         flag_nband = False
         datasetkey = list()
-
+ 
         #ecut
         datasetkey.append(['ecut:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'ecut%s' %n or starter[i].split()[0] == 'ecut':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append('notfound')
-
+ 
         #natom
         datasetkey.append(['natom:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'natom%s' %n or starter[i].split()[0] == 'natom':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(1)) #default
-
+ 
         #nband
         datasetkey.append(['nband:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'nband%s' %n or starter[i].split()[0] == 'nband':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(1)) #default
-
+ 
         #occopt
         datasetkey.append(['occopt:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'occopt%s' %n or starter[i].split()[0] == 'occopt':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(1)) #default
-
-        #set fermi energy to "automatic" if occopt is non metallic 
+ 
+        #set fermi energy to "automatic" if occopt is non metallic
         if datasetkey[-1][-1] in [0,1,2]:
             data.fermienergy = 'automatic'
-
+ 
         #toldfe
         datasetkey.append(['toldfe:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'toldfe%s' %n or starter[i].split()[0] == 'toldfe':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(0)) #default
-
+ 
         #toldff
         datasetkey.append(['toldff:'])
         for i in range(len(starter)):
-            if starter[i].split()[0] == 'toldff%s' %n or starter[i].split()[0] == 'toldff':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+            if starter[i].split()[0] == 'toldff%s' %n or starter[i].split()[0] == 'toldff': 
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(0)) #default
-
+ 
         #tolvrs
         datasetkey.append(['tolvrs:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'tolvrs%s' %n or starter[i].split()[0] == 'tolvrs':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(0)) #default
-
+ 
         #tolwfr
         datasetkey.append(['tolwfr:'])
         for i in range(len(starter)):
             if starter[i].split()[0] == 'tolwfr%s' %n or starter[i].split()[0] == 'tolwfr':
-                datasetkey[-1].append(float(starter[i].split()[1]))
+                if (starter[i].split()[1] != '='):
+                    datasetkey[-1].append(float(starter[i].split()[1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(0)) #default
-
+ 
         #typat
         datasetkey.append(['typat:'])
         for i in range(len(starter)):
@@ -904,7 +912,7 @@ if ctrl.filetype == 'out':
                 datasetkey[-1]+=temp
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append(float(1)) #default
-
+ 
         #reciprocalvectors
         datasetkey.append(['reciprocalvectors:'])
         for i in range(len(dataset)):
@@ -916,7 +924,7 @@ if ctrl.filetype == 'out':
                     datasetkey[-1].append(float(linesplit[-1]))
         if len(datasetkey[-1]) == 1:
             datasetkey[-1].append('notfound') #default
-
+ 
         #reduced coordinates
         datasetkey.append(['reducedcoordinates:'])
         for i in range(len(dataset)):
@@ -927,7 +935,7 @@ if ctrl.filetype == 'out':
                     datasetkey[-1].append(float(dataset[k+1].split()[1]))
                     datasetkey[-1].append(float(dataset[k+1].split()[2]))
                     k+=1
-
+ 
         #verify the dataset key
         if d == 0:
             #compute database key --> ctrl.databasekey
@@ -936,7 +944,7 @@ if ctrl.filetype == 'out':
         else:
             if datasetkey != ctrl.databasekey:
                 print '\n- ERROR -\nDATASET %s is not compatible with DATASET %s' %(n,refdataset)
-
+ 
                 #given reason
                 for i in range(len(datasetkey)):
                     if datasetkey[i] != ctrl.databasekey[i]:
@@ -946,12 +954,12 @@ if ctrl.filetype == 'out':
                 sys.exit()
             else:
                 pass
-
+ 
         #get eigenvalue energy units
         for line in dataset:
             if line.split()[0] == 'Eigenvalues':
                 data.units = line.replace('(','').replace(')','').split()[1]
-        
+       
         #get k-points --> data.kpt
         #get energy eigenvalues --> data.energy
         kptlist = list()
@@ -975,11 +983,11 @@ if ctrl.filetype == 'out':
             print '\n--> k-points found for DATASET %s\n    {%s element(s)}' %(n,len(kptlist))
         if ctrl.debugmode==True:
             print '\n--> energy eigenvalues found for DATASET %s\n    {%s element(s)} for each k-point' %(n,len(data.energy[0]))
-
+ 
 #-------------------------------------
-
-
-
+ 
+ 
+ 
     #compute special k-points --> data.specialkpt
     rmsuccessiverepetitions(data.kpt,data.energy)
     for i in range(len(data.kpt)):
@@ -991,7 +999,7 @@ if ctrl.filetype == 'out':
             data.specialkpt.append(data.kpt[i])
         else:
             vector1 = data.kpt[i] - data.kpt[i-1]
-            
+           
             if angle(vector1,vector2) < ctrl.angletol:
                 pass
             else:
@@ -1001,8 +1009,8 @@ if ctrl.filetype == 'out':
         print '\n--> special k-points computed\n    %s element(s)' %len(data.specialkpt)
         for i in range(len(data.specialkpt)):
             print '    %s' %data.specialkpt[i]
-
-    #compute band structure scheme --> ctrl.bandstructurescheme 
+ 
+    #compute band structure scheme --> ctrl.bandstructurescheme
     L = 0
     dico = dict()
     for i in range(len(data.specialkpt)):
@@ -1013,17 +1021,17 @@ if ctrl.filetype == 'out':
         ctrl.bandstructurescheme += '-%s' %dico[k]
     ctrl.bandstructurescheme = ctrl.bandstructurescheme[1:]
     if ctrl.debugmode==True:print '\n--> band structure scheme computed\n    %s' %ctrl.bandstructurescheme
-
+ 
 if ctrl.filetype == 'dbs':
     if feedback.feedback==True:feedbackbugged('DBS')
-
+ 
     #get graph title --> graph.title
     for i in range (len(ctrl.filedata)):
         if ctrl.filedata[i].split()[0] == 'GRAPH':
             graph.title = ctrl.filedata[i+1]
             while graph.title[0] == ' ':graph.title = graph.title[1:]
             while graph.title[-1] == ' ':graph.title = graph.title[:-1]
-
+ 
     #get reciprocal vectors --> data.G
     for i in range(len(ctrl.filedata)):
         if ctrl.filedata[i].split()[0] == 'reciprocalvectors:':
@@ -1035,18 +1043,18 @@ if ctrl.filetype == 'dbs':
         print '\n--> reciprocal vectors found'
         for i in range(3):
             print '    G(%s)= %s' %(i+1,data.G[i])
-
+ 
     #get number of valence bands
     for i in range(len(ctrl.filedata)):
         if ctrl.filedata[i].split()[0] == 'NUMBER':
             ctrl.nvalenceband = int(ctrl.filedata[i+1].split()[0])
-
+ 
     #get fermi energy
     for i in range(len(ctrl.filedata)):
         if ctrl.filedata[i].split()[0] == 'FERMI':
             data.fermienergy = ctrl.filedata[i+1].split()[0]
     if ctrl.debugmode==True:print '\n--> fermi energy found\n    %s' %data.fermienergy
-
+ 
     #get special k-points --> ctrl.dicospecialkpt {caption:array}
     for i in range(len(ctrl.filedata)):
         linesplit = ctrl.filedata[i].split()
@@ -1057,7 +1065,7 @@ if ctrl.filetype == 'dbs':
         print '\n--> special k-points found\n    %s element(s)' %len(ctrl.dicospecialkpt)
         for i in range(len(ctrl.dicospecialkpt)):
             print '    %s : %s' %(ctrl.dicospecialkpt.keys()[i],ctrl.dicospecialkpt.values()[i])
-
+ 
     #get band structure scheme --> ctrl.bandstructurescheme
     for i in range(len(ctrl.filedata)):
         if ctrl.filedata[i].split()[0][0] == '{' and ctrl.filedata[i].split()[-1][-1] == '}':
@@ -1065,7 +1073,7 @@ if ctrl.filetype == 'dbs':
             while ctrl.bandstructurescheme[0]  != '{':ctrl.bandstructurescheme = ctrl.bandstructurescheme[1:]
             while ctrl.bandstructurescheme[-1] != '}':ctrl.bandstructurescheme = ctrl.bandstructurescheme[:-1]
     if ctrl.debugmode==True:print '\n--> band structure scheme found\n    %s' %ctrl.bandstructurescheme
-
+ 
     #get k-points --> data.kpt
     #get energy eigenvalues --> data.energy
     for i in range(len(ctrl.filedata)):
@@ -1078,7 +1086,7 @@ if ctrl.filetype == 'dbs':
             data.energy.append(array(energieslist))
     if ctrl.debugmode==True:print '\n--> k-points found\n    {%s element(s)}' %len(data.kpt)
     if ctrl.debugmode==True:print '\n--> energy eigenvalues found\n    {%s element(s)} for each k-point' %len(data.energy[0])
-
+ 
     #compute segment caption list --> ctrl.segmentcaptionlist
     for captiongroup in ctrl.bandstructurescheme.split():
         captions = captiongroup.split('-')
@@ -1090,7 +1098,7 @@ if ctrl.filetype == 'dbs':
         print '\n--> segment caption list computed\n    %s element(s)' %len(ctrl.segmentcaptionlist)
         for i in range(len(ctrl.segmentcaptionlist)):
             print '    %s' %ctrl.segmentcaptionlist[i]
-
+ 
     #compute segment cartesian length --> ctrl.segmentcartlength
     nvac = 0
     nseg = 0
@@ -1106,19 +1114,19 @@ if ctrl.filetype == 'dbs':
             kf = kpt_red_to_cart(ctrl.dicospecialkpt[caption[1]],data.G)
             segmentcartlength.append(norm(kf-ki))
             totallen += segmentcartlength[-1]
-    
+   
     if nvac != 0:
         spacelen = (float(ctrl.spacepercent)/100)*totallen/nvac/(1-float(ctrl.spacepercent)/100)
         for i in range(len(segmentcartlength)):
             if segmentcartlength[i] == 'empty space':
                 segmentcartlength[i]=spacelen
-
+ 
     ctrl.segmentcartlength = array(segmentcartlength)
     if ctrl.debugmode==True:
         print '\n--> segment cartesian length computed\n    %s element(s)' %len(ctrl.segmentcartlength)
         for i in range(len(ctrl.segmentcartlength)):
             print '    %s' %ctrl.segmentcartlength[i]
-
+ 
     #compute segment relative length --> ctrl.segmentrellength
     totallen = sum(ctrl.segmentcartlength)
     segmentrellength = list()
@@ -1129,8 +1137,8 @@ if ctrl.filetype == 'dbs':
         print '\n--> segment relative length computed\n    %s element(s)' %len(ctrl.segmentrellength)
         for i in range(len(ctrl.segmentrellength)):
             print '    %s' %ctrl.segmentrellength[i]
-    
-    #compute positions of xticks --> ctrl.xtick 
+   
+    #compute positions of xticks --> ctrl.xtick
     xtick = list()
     for i in range(len(ctrl.segmentrellength)):
         xtick.append(sum(ctrl.segmentrellength[:i+1]))
@@ -1140,8 +1148,8 @@ if ctrl.filetype == 'dbs':
         print '\n--> positions of xticks computed\n    %s element(s)' %len(ctrl.xtick)
         for i in range(len(ctrl.xtick)):
             print '    %s' %ctrl.xtick[i]
-
-
+ 
+ 
     #compute captions of xticks --> ctrl.captiontick
     ctrl.captiontick = ctrl.bandstructurescheme.replace('-',' ').split()
     for i in range(len(ctrl.captiontick)):
@@ -1149,14 +1157,14 @@ if ctrl.filetype == 'dbs':
             ctrl.captiontick[i] = '"%s"' %ctrl.captiontick[i][2]
         elif ctrl.captiontick[i][1] == 's':
             ctrl.captiontick[i] = '"\\f{Symbol}%s"' %ctrl.captiontick[i][2]
-
-
+ 
+ 
     if ctrl.debugmode==True:
         print '\n--> captions of xticks computed\n    %s elements(s)' %len(ctrl.captiontick)
         for i in range(len(ctrl.captiontick)):
             print '    %s' %ctrl.captiontick[i]
-    
-
+   
+ 
     #compute dictionary mapping x coordinate on graph with k-points --> ctrl.dicoxkpt {x,kpt} (type(x) = float, type(kpt)=array(3,Float))
     for i in range(len(ctrl.segmentcaptionlist)):
         caption = ctrl.segmentcaptionlist[i]
@@ -1181,10 +1189,10 @@ if ctrl.filetype == 'dbs':
                 if goodkpt == True:
                     correct+=1
                     ctrl.dicoxkpt[xfrac*ctrl.segmentrellength[i]+ctrl.xtick[i]] = kpt
-
+ 
     #compute abcissa array --> ctrl.X
     ctrl.X = sort(ctrl.dicoxkpt.keys())
-    
+   
     #compute ordinate arrays --> ctrl.Y
     xsort = sort(ctrl.dicoxkpt.keys())
     for i in range(len(xsort)):
@@ -1195,28 +1203,28 @@ if ctrl.filetype == 'dbs':
                 index = j
         ctrl.Y.append(data.energy[index])
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #WRITE THE FILE
-
+ 
 if ctrl.filetype == 'out':
-
+ 
     #compute the .dbs filename --> ctrl.dbsfilename
     ctrl.dbsfilename = '%s.dbs' %ctrl.filename
-
+ 
     #open the writer
     writer = open(ctrl.dbsfilename,"w")
-
+ 
     #write the default graph title
     writer.write('GRAPH TITLE:\nBand Structure from %s\n' %ctrl.filename)
-
+ 
     #write number of valence bands
     writer.write('\nNUMBER OF VALENCE BANDS:\n%s\n' %ctrl.nvalenceband)
-
+ 
     #write the fermi energy
     writer.write('\nFERMI ENERGY (eV):\n%s\n' %data.fermienergy)
-
+ 
     #write the special kpts
     rmrepetitions(data.specialkpt)
     writer.write('\nSPECIAL K-POINTS (reduced coord):\n')
@@ -1232,11 +1240,11 @@ if ctrl.filetype == 'out':
             writer.write('{l%s}= %s %s %s\n' %(ctrl.alphabet[i+1],kx,ky,kz))
         else:
             writer.write('{l%s}= %s %s %s\n' %('x',kx,ky,kz))
-
+ 
     #write the band structure scheme
     writer.write('\nBAND STRUCTURE SCHEME:\n')
     writer.write('%s\n' %ctrl.bandstructurescheme)
-
+ 
     #write the kpts and energies
     rmrepetitions(data.kpt,data.energy)
     writer.write('\n\n\nDATABASE:\n')
@@ -1253,26 +1261,26 @@ if ctrl.filetype == 'out':
             if e >=0:writer.write(' %e ' %e)
             else:writer.write('%e ' %e)
         writer.write('\n')
-
+ 
     #write the database key
     writer.write('\nDATABASE KEY:\n')
     for i in range(len(ctrl.databasekey)):
         for j in range(len(ctrl.databasekey[i])):
             writer.write('%s ' %ctrl.databasekey[i][j])
         writer.write('\n')
-
+ 
     #close the writer
     writer.close()
-
+ 
     print '\n"%s" file created successfully\n' %ctrl.dbsfilename
     if feedback.feedback==True:feedbackcompleted('OUT')
-
-
+ 
+ 
 if ctrl.filetype == 'dbs':
-    
+   
     #compute the .agr filename --> ctrl.agrfilename
     ctrl.agrfilename = '%s.agr' %ctrl.filename[:-4]
-
+ 
     #compute fermi energy value in eV --> ctrl.fermienergy
     if data.fermienergy == 'automatic':
         maxlist = list()
@@ -1281,7 +1289,7 @@ if ctrl.filetype == 'dbs':
         data.fermienergy = max(maxlist)
     else:
         data.fermienergy = float(data.fermienergy)
-
+ 
     #compute the energy gap --> ctrl.bandgap
     maxHOMOlist = list()
     minLUMOlist = list()
@@ -1291,72 +1299,72 @@ if ctrl.filetype == 'dbs':
     maxHOMO = max(maxHOMOlist)
     minLUMO = min(minLUMOlist)
     ctrl.bandgap = minLUMO - maxHOMO
-
+ 
     #compute gap style --> ctrl.gapstyle
     ctrl.gapstyle = '(indirect)' #default
     maxHOMOindexlist = list()
     minLUMOindexlist = list()
-
+ 
     i = 0
     while maxHOMO in maxHOMOlist:
         maxHOMOindexlist.append(maxHOMOlist.index(maxHOMO)+i)
         maxHOMOlist.pop(maxHOMOlist.index(maxHOMO))
         i += 1
-
+ 
     i = 0
     while minLUMO in minLUMOlist:
         minLUMOindexlist.append(minLUMOlist.index(minLUMO)+i)
         minLUMOlist.pop(minLUMOlist.index(minLUMO))
         i += 1
-
+ 
     for M in maxHOMOindexlist:
         if M in minLUMOindexlist:
             ctrl.gapstyle = '(direct)'
-
+ 
     #shift energies to bring the fermi energy to zero, if wanted
     if ctrl.energyshift == 'yes':
         for i in range(len(ctrl.Y)):
             ctrl.Y[i] = ctrl.Y[i] - data.fermienergy
         data.fermienergy = 0.0
-
+ 
     #compute plot.worldymin --> graph.worldymin
     minlist = list()
     for array in ctrl.Y:
         minlist.append(min(array))
     graph.worldymin = min(minlist)
-    
+   
     #compute plot.worldymax --> graph.worldymax
     maxlist = list()
     for array in ctrl.Y:
         maxlist.append(max(array))
     graph.worldymax = max(maxlist)
-
+ 
     #adjust worldymin et worldymax
     width = graph.worldymax - graph.worldymin
     graph.worldymin = graph.worldymin - 0.05*width
     graph.worldymax = graph.worldymax + 0.05*width
-
+ 
     #open the writer
     writer = open(ctrl.agrfilename,"w")
-
+ 
     #write the file
     writer.write('# file produced using %s version %s\n' %(program,version))
     writer.write('\n')
     writer.write('# version of xmgrace:\n')
     writer.write('@   version 50114\n')
     writer.write('\n')
-
+ 
     writer.write('# graph title:\n')
     writer.write('@   title "%s"\n' %graph.title)
     writer.write('\n')
-
+ 
     writer.write('# graph range:\n')
     writer.write('@   world xmin 0\n')
     writer.write('@   world xmax 1\n')
     writer.write('@   world ymin %s\n' %graph.worldymin)
     writer.write('@   world ymax %s\n' %graph.worldymax)
     writer.write('\n')
-
+ 
     writer.write('# X axis properties:\n')
     writer.write('@   xaxis tick major size 0.0\n') #height of x tick lines
     writer.write('@   xaxis tick spec type both\n') #???
@@ -1367,14 +1375,14 @@ if ctrl.filetype == 'dbs':
     if ctrl.bandgap > 0:
          writer.write('@   xaxis label "E\sG %s\N = %s eV"\n' %(ctrl.gapstyle,ctrl.bandgap))
     writer.write('\n')
-
+ 
     writer.write('# Y axis properties:\n')
     writer.write('@   yaxis label "Energy (eV)"\n')
     writer.write('@   yaxis tick major 5\n')
     writer.write('@   yaxis tick minor 1\n')
     writer.write('@   yaxis tick place normal\n')
     writer.write('\n')
-
+ 
     writer.write('# alternate Y axis properties:\n')
     writer.write('@   altyaxis on\n')
     writer.write('@   altyaxis ticklabel on\n')
@@ -1385,17 +1393,17 @@ if ctrl.filetype == 'dbs':
     writer.write('@   altyaxis tick major 0, %s\n' %data.fermienergy)
     writer.write('@   altyaxis ticklabel 0, "\\f{Symbol}e\\f{}\sF\N"\n') #epsilon fermi symbol
     writer.write('\n')
-
+ 
     writer.write('# frame properties:\n')
     writer.write('@   frame linewidth %s\n' %ctrl.separatorlinewidth)
     writer.write('\n')
-    
+   
     s = 0
-
+ 
     writer.write('# plot of energy bands:\n')
     for i in range(len(ctrl.Y[0])):
         if i+1 > ctrl.nvalenceband:
-            color = ctrl.xmgracecolor[ctrl.conbandcolor] 
+            color = ctrl.xmgracecolor[ctrl.conbandcolor]
         else:
             color = ctrl.xmgracecolor[ctrl.valbandcolor]
         writer.write('@   s%s line linewidth %s\n' %(s,ctrl.bandlinewidth))
@@ -1406,7 +1414,7 @@ if ctrl.filetype == 'dbs':
             writer.write('      %s \t %s\n' %(ctrl.X[j],ctrl.Y[j][i]))
         writer.write('    &\n')
     writer.write('\n')
-
+ 
     writer.write('# plot of fermi energy line:\n')
     writer.write('@   s%s linewidth %s\n' %(s,ctrl.fermilinewidth))
     writer.write('@   s%s linestyle 2\n' %s)
@@ -1417,7 +1425,7 @@ if ctrl.filetype == 'dbs':
     writer.write('      %s \t %s\n' %(1,data.fermienergy))
     writer.write('    &\n')
     writer.write('\n')
-
+ 
     writer.write('# plot of empty spaces:\n')
     for i in range(len(ctrl.segmentcaptionlist)):
         if ctrl.segmentcaptionlist[i] == ['empty space']:
@@ -1441,7 +1449,7 @@ if ctrl.filetype == 'dbs':
                 writer.write('      %s \t %s\n' %(xf,ctrl.Y[index+1][j]))
             writer.write('    &\n')
     writer.write('\n')
-
+ 
     writer.write('# plot of vertical separators:\n')
     for i in range(len(ctrl.xtick)-2):
         writer.write('@   s%s linewidth %s\n' %(s,ctrl.separatorlinewidth))
@@ -1452,23 +1460,23 @@ if ctrl.filetype == 'dbs':
         writer.write('      %s \t %s\n' %(ctrl.xtick[i+1],graph.worldymax))
         writer.write('    &\n')
     writer.write('\n')
-        
+       
     #close the writer
     writer.close()
-
+ 
     print '\n"%s" file created successfully\n' %ctrl.agrfilename
     if feedback.feedback==True:feedbackcompleted('DBS')
-    
+   
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #=====================================================================================================================================================================
 #AUTOLAUNCH
-
+ 
 if ctrl.filetype == 'dbs' and ctrl.autolaunch == 'yes':
     print 'launching xmgrace using command :\n> %s %s &\n' %(ctrl.launchcommand,ctrl.agrfilename)
     os.system('%s %s &' %(ctrl.launchcommand,ctrl.agrfilename))
 #=====================================================================================================================================================================
-
-
+ 
+ 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
